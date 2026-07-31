@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+ * Luma design tokens.
+ * Colors are the approved palette from docs/BRAND.md — do not add colors.
+ * Fonts are the official brand faces (see src/lib/fonts.ts).
+ */
+@theme {
+  --color-onyx: #383639;
+  --color-luma-white: #f1f1f1;
+  --color-eggshell: #f1e7db;
+  --color-crystal: #aadde1;
+  --color-celtic-blue: #1a5edb;
+  --color-cyber-yellow: #fdd400;
+  --color-orange-red: #fe564b;
+  --color-luma-green: #1d987c;
+  --color-rose-pink: #fd72cc;
+  --color-tangerine: #fa9359;
+  --color-light-green: #a2e07b;
+  --color-classic-rose: #fad1e1;
+
+  --font-display: var(--font-display-brand), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-body: var(--font-body-brand), ui-sans-serif, system-ui, sans-serif;
+}
+
+/*
+ * BaileywickGothicJF ships as a single Medium (550) weight. Requesting a
+ * heavier weight makes the browser synthesize a distorted faux-bold, so
+ * display type is locked to the face's own weight.
+ */
+.font-display {
+  font-weight: 550;
+}
+
+/* Adelphi is a light face; body copy needs full-strength color to hold
+   contrast at interface sizes. */
+body {
+  font-synthesis-weight: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-celtic-blue);
+  outline-offset: 2px;
+}
+
+/* On blue/dark fields the default blue focus ring disappears. */
+.on-dark :focus-visible {
+  outline-color: var(--color-cyber-yellow);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/*
+ * Brand surface patterns, derived from Luma's own packaging artwork and
+ * sock ribbing rather than generic decoration.
+ */
+.pattern-rings {
+  background-image: repeating-radial-gradient(
+    circle at var(--rings-x, 28%) var(--rings-y, 45%),
+    rgb(255 255 255 / 0.07) 0 2px,
+    transparent 2px 20px
+  );
+}
+
+.pattern-rings-dark {
+  background-image: repeating-radial-gradient(
+    circle at var(--rings-x, 28%) var(--rings-y, 45%),
+    rgb(56 54 57 / 0.06) 0 2px,
+    transparent 2px 20px
+  );
+}
+
+/* Sock-cuff ribbing, used as section edge bands. */
+.pattern-ribbing {
+  background-image: repeating-linear-gradient(
+    90deg,
+    currentColor 0 3px,
+    transparent 3px 11px
+  );
+}
+
+/* Oversized ghosted wordmark used as editorial background texture. */
+.ghost-type {
+  font-family: var(--font-display);
+  font-weight: 550;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/*
+ * Entrance motion. Total choreography stays under the approved 1.2 s
+ * budget and is fully disabled under prefers-reduced-motion.
+ */
+@keyframes luma-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes luma-settle {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*
+ * Box-opening reveal (BoxReveal.tsx). The closed lid is hidden by default
+ * (fail-open: the open box shows); the component arms it via
+ * data-reveal="armed" and clears the attribute to crossfade open.
+ */
+.box-reveal-lid {
+  opacity: 0;
+  transition: opacity 0.9s ease-out;
+}
+[data-reveal="armed"] > .box-reveal-lid {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .box-reveal-lid {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-rise {
+    animation: luma-rise 0.5s ease-out both;
+  }
+  .motion-rise-delayed {
+    animation: luma-rise 0.5s ease-out 0.15s both;
+  }
+  .motion-settle {
+    animation: luma-settle 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+}

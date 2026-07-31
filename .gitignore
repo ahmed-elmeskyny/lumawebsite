@@ -1,0 +1,31 @@
+# dependencies
+/node_modules
+
+# raw GIF masters — not served by the site (converted derivatives are
+# tracked instead); large and unused, kept out of repo history.
+/public/assets/brand/*.gif
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files
+.env*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

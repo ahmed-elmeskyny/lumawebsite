@@ -1,0 +1,227 @@
+import type { CatalogueProduct, ProductImage } from "@/types/product";
+import { SIZE_RANGES } from "@/types/product";
+
+/**
+ * Local catalogue mirroring the approved launch structure. Names,
+ * contents, prices, mood labels, and copy come from docs/PRODUCTS.md and
+ * docs/CONTENT.md; asset roles come from docs/ASSET_MANIFEST.md. Do not
+ * add records or fields that are not approved.
+ *
+ * Access this data through lib/catalogue.ts, never directly from
+ * components.
+ */
+
+const square = (src: string, alt: string): ProductImage => ({
+  src,
+  alt,
+  width: 1254,
+  height: 1254,
+});
+
+const packshot = (src: string, alt: string): ProductImage => ({
+  src,
+  alt,
+  width: 1080,
+  height: 1080,
+});
+
+export const catalogueProducts: readonly CatalogueProduct[] = [
+  {
+    handle: "color-your-steps",
+    name: "Color Your Steps",
+    type: "edition",
+    priceMad: 235,
+    shortDescription:
+      "Three expressive designs for the days when one mood is not enough.",
+    description:
+      "Color Your Steps brings together Kickflip Luma, Luma Doodle, and Watch Your Step in one bright, art-led edition. Choose one size for all three pairs and open a box built around color, character, and movement.",
+    moodTags: ["Bold", "Playful", "Creative"],
+    contents: [
+      {
+        name: "Kickflip Luma",
+        image: packshot(
+          "/assets/products/socks/sock-kickflip-luma.jpg",
+          "Kickflip Luma socks, front view",
+        ),
+      },
+      {
+        name: "Luma Doodle",
+        image: packshot(
+          "/assets/products/socks/sock-luma-doodle.jpg",
+          "Luma Doodle socks, front view",
+        ),
+      },
+      {
+        name: "Watch Your Step",
+        image: packshot(
+          "/assets/products/socks/sock-watch-your-step.jpg",
+          "Watch Your Step socks, front view",
+        ),
+      },
+    ],
+    sizeRanges: SIZE_RANGES,
+    image: square(
+      "/assets/editions/luma-color-your-steps-closed-v1.png",
+      "Color Your Steps closed rigid magnetic box",
+    ),
+    gallery: [
+      square(
+        "/assets/editions/luma-color-your-steps-open-filled-v1.png",
+        "Color Your Steps open box with Kickflip Luma, Luma Doodle, and Watch Your Step socks",
+      ),
+      square(
+        "/assets/editions/luma-color-your-steps-closed-v1.png",
+        "Color Your Steps closed rigid magnetic box",
+      ),
+      square(
+        "/assets/editions/luma-color-your-steps-box-with-socks-v1.png",
+        "Color Your Steps box with its three sock designs beside it",
+      ),
+      square(
+        "/assets/editions/luma-color-your-steps-top-down-v1.png",
+        "Color Your Steps open box seen from above",
+      ),
+    ],
+  },
+  {
+    handle: "healthy-shifts",
+    name: "Healthy Shifts",
+    type: "edition",
+    priceMad: 235,
+    shortDescription:
+      "A colorful shift for symbols usually seen somewhere more serious.",
+    description:
+      "Healthy Shifts brings together Plus Pulse, Vital Signs, and Luma Med Team in one medical-inspired edition. Choose one size for all three pairs and let its teal, blue, and purple world do the talking.",
+    moodTags: ["Playful", "Clever", "Unexpected"],
+    contents: [
+      {
+        name: "Plus Pulse",
+        image: packshot(
+          "/assets/products/socks/sock-plus-pulse.jpg",
+          "Plus Pulse socks, front view",
+        ),
+      },
+      {
+        name: "Vital Signs",
+        image: packshot(
+          "/assets/products/socks/sock-vital-signs.jpg",
+          "Vital Signs socks, front view",
+        ),
+      },
+      {
+        name: "Luma Med Team",
+        image: packshot(
+          "/assets/products/socks/sock-luma-med-team.jpg",
+          "Luma Med Team socks, front view",
+        ),
+      },
+    ],
+    sizeRanges: SIZE_RANGES,
+    image: square(
+      "/assets/editions/luma-healthy-shifts-closed-v1.png",
+      "Healthy Shifts closed rigid magnetic box",
+    ),
+    gallery: [
+      square(
+        "/assets/editions/luma-healthy-shifts-open-filled-v1.png",
+        "Healthy Shifts open box with Plus Pulse, Vital Signs, and Luma Med Team socks",
+      ),
+      square(
+        "/assets/editions/luma-healthy-shifts-closed-v1.png",
+        "Healthy Shifts closed rigid magnetic box",
+      ),
+      square(
+        "/assets/editions/luma-healthy-shifts-box-with-socks-v1.png",
+        "Healthy Shifts box with its three sock designs beside it",
+      ),
+      square(
+        "/assets/editions/luma-healthy-shifts-top-down-v1.png",
+        "Healthy Shifts open box seen from above",
+      ),
+    ],
+  },
+  {
+    handle: "hypno-wave",
+    name: "Hypno Wave",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "A graphic rhythm that pulls the eye in.",
+    description:
+      "Hypno Wave turns a repeating visual rhythm into the detail your outfit will not ignore. Wear it when simple needs a sharper edge.",
+    moodTags: ["Bold", "Hypnotic", "Graphic"],
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-hypno-wave.jpg",
+      "Hypno Wave socks, front view",
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-hypno-wave.jpg",
+        "Hypno Wave socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "daydream",
+    name: "Daydream",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "For wandering minds and colorful plans.",
+    description:
+      "Daydream brings an easy, imaginative mood to whatever you are wearing. A little escape, one step at a time.",
+    moodTags: ["Dreamy", "Chill", "Playful"],
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-daydream.jpg",
+      "Daydream socks, front view",
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-daydream.jpg",
+        "Daydream socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "shroom-pop",
+    name: "Shroom Pop",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "A little strange. A lot of fun.",
+    description:
+      "Shroom Pop leans into the unexpected with a playful mood made to stand out. Wear it when normal feels a little too normal.",
+    moodTags: ["Weird", "Playful", "Colorful"],
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-shroom-pop.jpg",
+      "Shroom Pop socks, front view",
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-shroom-pop.jpg",
+        "Shroom Pop socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "vibe-attack",
+    name: "Vibe Attack",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "When subtle is not the assignment.",
+    description:
+      "Vibe Attack brings full-volume energy to the smallest part of your outfit. Let the pair make the first move.",
+    moodTags: ["Loud", "Energetic", "Graphic"],
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-vibe-attack.jpg",
+      "Vibe Attack socks, front view",
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-vibe-attack.jpg",
+        "Vibe Attack socks, front view",
+      ),
+    ],
+  },
+];
