@@ -125,24 +125,6 @@ html {
   }
 }
 
-/*
- * Box-opening reveal (BoxReveal.tsx). The closed lid is hidden by default
- * (fail-open: the open box shows); the component arms it via
- * data-reveal="armed" and clears the attribute to crossfade open.
- */
-.box-reveal-lid {
-  opacity: 0;
-  transition: opacity 0.9s ease-out;
-}
-[data-reveal="armed"] > .box-reveal-lid {
-  opacity: 1;
-}
-@media (prefers-reduced-motion: reduce) {
-  .box-reveal-lid {
-    transition: none;
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .motion-rise {
     animation: luma-rise 0.5s ease-out both;

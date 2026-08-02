@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-type CtaVariant = "yellow" | "outlineLight" | "dark" | "outlineDark";
+type CtaVariant =
+  | "yellow"
+  | "outlineLight"
+  | "quietLight"
+  | "dark"
+  | "outlineDark";
 
 interface CtaLinkProps {
   href: string;
@@ -16,6 +21,9 @@ const VARIANTS: Record<CtaVariant, string> = {
   /** Secondary action on blue/dark fields */
   outlineLight:
     "border-2 border-luma-white/70 text-luma-white hover:bg-luma-white hover:text-onyx",
+  /** Quieter tertiary action on blue/dark fields — underlined text link */
+  quietLight:
+    "text-luma-white underline underline-offset-4 decoration-luma-white/50 hover:decoration-cyber-yellow hover:text-cyber-yellow px-1",
   /** Primary action on light fields */
   dark: "bg-onyx text-luma-white hover:bg-celtic-blue",
   /** Secondary action on light fields */

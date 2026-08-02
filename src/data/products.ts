@@ -25,6 +25,18 @@ const packshot = (src: string, alt: string): ProductImage => ({
   height: 1080,
 });
 
+const cutout = (
+  src: string,
+  alt: string,
+  w: number,
+  h: number,
+): ProductImage => ({
+  src,
+  alt,
+  width: w,
+  height: h,
+});
+
 export const catalogueProducts: readonly CatalogueProduct[] = [
   {
     handle: "color-your-steps",
@@ -39,23 +51,29 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     contents: [
       {
         name: "Kickflip Luma",
-        image: packshot(
-          "/assets/products/socks/sock-kickflip-luma.jpg",
+        image: cutout(
+          "/assets/products/socks/cutout/sock-kickflip-luma-card.png",
           "Kickflip Luma socks, front view",
+          363,
+          712,
         ),
       },
       {
         name: "Luma Doodle",
-        image: packshot(
-          "/assets/products/socks/sock-luma-doodle.jpg",
+        image: cutout(
+          "/assets/products/socks/cutout/sock-luma-doodle-card.png",
           "Luma Doodle socks, front view",
+          363,
+          712,
         ),
       },
       {
         name: "Watch Your Step",
-        image: packshot(
-          "/assets/products/socks/sock-watch-your-step.jpg",
+        image: cutout(
+          "/assets/products/socks/cutout/sock-watch-your-step-card.png",
           "Watch Your Step socks, front view",
+          363,
+          712,
         ),
       },
     ],
@@ -96,23 +114,29 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     contents: [
       {
         name: "Plus Pulse",
-        image: packshot(
-          "/assets/products/socks/sock-plus-pulse.jpg",
+        image: cutout(
+          "/assets/products/socks/cutout/sock-plus-pulse-card.png",
           "Plus Pulse socks, front view",
+          363,
+          712,
         ),
       },
       {
         name: "Vital Signs",
-        image: packshot(
-          "/assets/products/socks/sock-vital-signs.jpg",
+        image: cutout(
+          "/assets/products/socks/cutout/sock-vital-signs-card.png",
           "Vital Signs socks, front view",
+          363,
+          712,
         ),
       },
       {
         name: "Luma Med Team",
-        image: packshot(
-          "/assets/products/socks/sock-luma-med-team.jpg",
+        image: cutout(
+          "/assets/products/socks/cutout/sock-luma-med-team-card.png",
           "Luma Med Team socks, front view",
+          363,
+          712,
         ),
       },
     ],
@@ -154,6 +178,12 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       "/assets/products/socks/sock-hypno-wave.jpg",
       "Hypno Wave socks, front view",
     ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-hypno-wave-card.png",
+      "Hypno Wave socks, front view",
+      363,
+      712,
+    ),
     gallery: [
       packshot(
         "/assets/products/socks/sock-hypno-wave.jpg",
@@ -174,6 +204,12 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     image: packshot(
       "/assets/products/socks/sock-daydream.jpg",
       "Daydream socks, front view",
+    ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-daydream-card.png",
+      "Daydream socks, front view",
+      363,
+      712,
     ),
     gallery: [
       packshot(
@@ -196,6 +232,12 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       "/assets/products/socks/sock-shroom-pop.jpg",
       "Shroom Pop socks, front view",
     ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-shroom-pop-card.png",
+      "Shroom Pop socks, front view",
+      362,
+      712,
+    ),
     gallery: [
       packshot(
         "/assets/products/socks/sock-shroom-pop.jpg",
@@ -216,6 +258,12 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     image: packshot(
       "/assets/products/socks/sock-vibe-attack.jpg",
       "Vibe Attack socks, front view",
+    ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-vibe-attack-card.png",
+      "Vibe Attack socks, front view",
+      363,
+      712,
     ),
     gallery: [
       packshot(

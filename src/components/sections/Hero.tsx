@@ -1,93 +1,68 @@
 import Image from "next/image";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { GhostType } from "@/components/ui/GhostType";
+import { WaveField } from "@/components/ui/WaveField";
 
 /**
- * Homepage hero.
+ * Homepage hero, built in the language of the Luma campaign billboard:
+ * a wavy yellow-and-white ribbon field, an oversized blue display
+ * headline, the product worn and entering from the right, and the Luma
+ * lockup anchored bottom-left.
  *
- * Composition follows the Luma hero direction supplied by the user on
- * 28 July 2026: deep Celtic Blue field, oversized ghosted lettering and
- * ring pattern as texture, the brand animation framed in a white card
- * over a yellow blob, a yellow pill primary action, and a numbered
- * two-up detail row beneath the actions.
- *
- * The mockup's detail row carried sustainability and material claims
- * ("Eco-Friendly Materials", "High needle density…"). Those are
- * prohibited by CLAUDE.md and PRODUCTS.md until documented approval, so
- * the same layout device carries approved commerce facts instead.
- *
- * All headline, body, and action copy is the approved hero set from
- * docs/CONTENT.md.
+ * Note on copy: the billboard headline is a Morocco retail-availability
+ * message. The approved geography rule in docs/CONTENT.md keeps Morocco
+ * off the homepage, so the approved brand message is used here instead
+ * and the retail claim is not published. See the checkpoint report.
  */
-const HERO_DETAILS = [
-  {
-    index: "01",
-    title: "Cash on delivery",
-    detail: "Pay when your order arrives.",
-  },
-  {
-    index: "02",
-    title: "Two size ranges",
-    detail: "EU 36–40 and EU 41–46.",
-  },
-] as const;
-
 export function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="on-dark pattern-rings relative overflow-hidden bg-celtic-blue"
+      className="relative overflow-hidden bg-luma-white"
     >
-      <GhostType className="-bottom-6 left-0 text-[22vw] text-luma-white/8 lg:-bottom-10">
-        COLOR YOUR STEPS
-      </GhostType>
+      <WaveField />
 
-      <div className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-4 pb-16 pt-10 sm:px-7 lg:grid-cols-[minmax(0,47fr)_minmax(0,53fr)] lg:gap-10 lg:px-12 lg:pb-24 lg:pt-16">
-        <div className="max-w-xl">
-          <p className="motion-rise text-sm font-semibold uppercase tracking-[0.16em] text-cyber-yellow">
-            Socks for every side of you.
-          </p>
+      <div className="relative mx-auto grid max-w-[1440px] items-end gap-6 px-4 sm:px-7 lg:grid-cols-[minmax(0,52fr)_minmax(0,48fr)] lg:gap-8 lg:px-12">
+        <div className="pt-12 pb-6 lg:pt-20 lg:pb-16">
           <h1
             id="hero-heading"
-            className="motion-rise mt-4 font-display text-[clamp(3.25rem,15vw,5.5rem)] leading-[0.92] tracking-tight text-luma-white lg:text-[clamp(4.5rem,7.5vw,8rem)]"
+            className="motion-rise font-display text-[clamp(3rem,13vw,5rem)] uppercase leading-[0.9] tracking-tight text-celtic-blue lg:text-[clamp(4rem,7vw,7.5rem)]"
           >
             Wear who you&nbsp;are.
           </h1>
-          <p className="motion-rise-delayed mt-6 max-w-md text-lg leading-relaxed text-luma-white/90">
+          <p className="motion-rise-delayed mt-6 max-w-md text-lg leading-relaxed text-onyx">
             Color, character, and a little surprise—made to turn an everyday
             pair into part of your story.
           </p>
 
-          <div className="motion-rise-delayed mt-8 flex flex-wrap gap-3">
-            <CtaLink href="/shop">Shop the drop</CtaLink>
-            <CtaLink href="/collections/editions" variant="outlineLight">
-              Discover the editions
+          <div className="motion-rise-delayed mt-8 flex flex-wrap items-center gap-4">
+            <CtaLink href="/shop" variant="dark">
+              Shop the drop
+            </CtaLink>
+            <CtaLink href="/collections/editions" variant="outlineDark">
+              Explore the editions
             </CtaLink>
           </div>
 
-          <dl className="motion-rise-delayed mt-10 grid max-w-lg gap-6 sm:grid-cols-2">
-            {HERO_DETAILS.map((item) => (
-              <div key={item.index} className="border-t border-luma-white/25 pt-3">
-                <dt className="flex items-baseline gap-2 text-sm font-semibold text-luma-white">
-                  <span className="text-cyber-yellow">{item.index}</span>
-                  {item.title}
-                </dt>
-                <dd className="mt-1 text-sm text-luma-white/75">
-                  {item.detail}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          {/* Brand lockup anchored bottom-left, as on the campaign artwork */}
+          <div className="motion-rise-delayed mt-10 flex items-center gap-5 lg:mt-14">
+            <Image
+              src="/assets/brand/logo-icon-blue.svg"
+              alt="Luma Socks"
+              width={96}
+              height={96}
+              unoptimized
+              className="h-12 w-auto"
+            />
+            <span className="h-9 w-px bg-onyx/25" aria-hidden="true" />
+            <p className="max-w-45 text-sm font-semibold leading-tight text-onyx/70">
+              Socks for every side of you.
+            </p>
+          </div>
         </div>
 
-        <div className="motion-settle relative">
-          {/* Yellow blob behind the media, per the supplied direction */}
-          <div
-            aria-hidden="true"
-            className="absolute -inset-x-2 top-4 bottom-10 rounded-[45%] bg-cyber-yellow/85 sm:inset-x-6"
-          />
-
-          <div className="relative overflow-hidden rounded-3xl bg-luma-white shadow-[0_18px_50px_rgba(0,0,0,0.25)]">
+        <div className="motion-settle relative mx-auto w-full max-w-md pb-6 lg:max-w-none lg:pb-8">
+          {/* Brand animation, pinned back like a poster */}
+          <div className="relative z-10 w-[62%] -rotate-3 overflow-hidden rounded-2xl bg-luma-white shadow-[0_16px_40px_rgba(0,0,0,0.22)]">
             <video
               aria-hidden="true"
               tabIndex={-1}
@@ -116,32 +91,18 @@ export function Hero() {
             />
           </div>
 
-          {/* Real product imagery stays present in the first viewport,
-              breaking out of the media card. */}
+          {/* The product, worn — angled into frame like the campaign shot */}
           <Image
-            src="/assets/editions/luma-combined-editions-homepage-hero-v1.png"
-            alt="Luma's two three-pair editions side by side: the blue Color Your Steps box and the teal Healthy Shifts box, open with their sock designs"
-            width={1536}
-            height={1024}
+            src="/assets/products/lifestyle/luma-legs-watch-your-step.png"
+            alt="Legs wearing Luma socks in the yellow Watch Your Step design"
+            width={1200}
+            height={1437}
             priority
-            sizes="(min-width: 1024px) 45vw, 88vw"
-            className="relative mx-auto -mt-8 h-auto w-[92%] object-contain drop-shadow-[0_16px_28px_rgba(0,0,0,0.28)] sm:-mt-12"
-          />
-
-          <Image
-            src="/assets/brand/Luma Socks - Stickers  (18).svg"
-            alt=""
-            width={70}
-            height={70}
-            unoptimized
-            className="absolute -top-2 right-0 h-12 w-auto rotate-12 sm:h-16"
+            sizes="(min-width: 1024px) 42vw, 78vw"
+            className="relative z-20 -mt-[24%] ml-auto block h-auto w-[74%] origin-bottom rotate-6 object-contain drop-shadow-[0_22px_38px_rgba(0,0,0,0.28)]"
           />
         </div>
       </div>
-
-      <p className="relative mx-auto max-w-[1440px] px-4 pb-6 text-sm text-luma-white/70 sm:px-7 lg:px-12">
-        Cash on delivery across Morocco.
-      </p>
     </section>
   );
 }

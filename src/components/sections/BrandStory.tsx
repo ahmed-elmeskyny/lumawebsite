@@ -1,26 +1,21 @@
 import Image from "next/image";
 import { CtaLink } from "@/components/ui/CtaLink";
-import { GhostType } from "@/components/ui/GhostType";
 
 /**
- * Brand story moment; copy from docs/CONTENT.md "Brand story". The
- * mascot is decorative here (empty alt) per docs/BRAND.md.
+ * Compact brand introduction — the homepage's only brand-story block.
+ * The full narrative lives on /our-story.
  */
 export function BrandStory() {
   return (
     <section
       aria-labelledby="brand-story-heading"
-      className="on-dark pattern-rings relative overflow-hidden bg-celtic-blue [--rings-x:80%]"
+      className="on-dark pattern-rings relative overflow-hidden bg-celtic-blue [--rings-x:82%]"
     >
-      <GhostType className="-bottom-5 left-0 text-[20vw] text-luma-white/8">
-        THIS IS LUMA
-      </GhostType>
-
-      <div className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-4 py-16 sm:px-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.8fr)] lg:gap-16 lg:px-12 lg:py-24">
-        <div className="relative flex justify-center">
+      <div className="relative mx-auto flex max-w-[1440px] flex-col items-center gap-8 px-4 py-14 text-center sm:px-7 lg:flex-row lg:gap-12 lg:px-12 lg:py-16 lg:text-left">
+        <div className="relative shrink-0">
           <div
             aria-hidden="true"
-            className="absolute inset-x-4 top-2 bottom-2 rounded-[45%] bg-cyber-yellow/85"
+            className="absolute inset-x-0 top-0 bottom-0 rounded-[45%] bg-cyber-yellow/85"
           />
           <Image
             src="/assets/mascot/luma-flower-green.svg"
@@ -28,30 +23,23 @@ export function BrandStory() {
             width={187}
             height={237}
             unoptimized
-            className="relative h-52 w-auto sm:h-64"
+            className="relative h-36 w-auto sm:h-44"
           />
         </div>
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyber-yellow">
-            This is Luma
-          </p>
           <h2
             id="brand-story-heading"
-            className="mt-3 font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-[0.95] tracking-tight text-luma-white"
+            className="font-display text-[clamp(2.25rem,6vw,3.5rem)] leading-[0.98] tracking-tight text-luma-white"
           >
-            Built from the ankle up.
+            More than something you wear.
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-luma-white/90">
-            Luma began in Morocco with a simple idea: socks do not have to
-            disappear into an outfit. They can carry a mood, start a
-            conversation, or show a side of you before you say a word.
+          <p className="mt-4 text-lg leading-relaxed text-luma-white/90">
+            Luma turns everyday socks into a canvas for color, character, and
+            self-expression.
           </p>
-          <p className="mt-5 font-display text-2xl text-cyber-yellow">
-            Made with color in Morocco.
-          </p>
-          <div className="mt-7">
-            <CtaLink href="/our-story">Read our story</CtaLink>
-          </div>
+        </div>
+        <div className="lg:ml-auto">
+          <CtaLink href="/our-story">Meet Luma</CtaLink>
         </div>
       </div>
     </section>

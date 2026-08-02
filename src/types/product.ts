@@ -44,6 +44,12 @@ export interface CatalogueProduct {
   sizeRanges: readonly SizeRange[];
   /** Primary card/grid image */
   image: ProductImage;
+  /**
+   * Optional transparent cutout used on colour-field cards. Derived from
+   * `image` by a background-removal pass — the original photograph is
+   * never modified. Falls back to `image` when absent.
+   */
+  cardImage?: ProductImage;
   /** Product-page gallery, primary view first */
   gallery: readonly ProductImage[];
 }

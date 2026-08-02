@@ -11,6 +11,12 @@ checkout. Policy language must follow the final approved business rules.
 
 This document is a review draft until the user approves it.
 
+**Revised 28 July 2026** following the product-led homepage revision. That
+revision added a geography rule and a payment-visibility rule (below), retired
+three homepage sections, and replaced the homepage brand-story block. Sections
+marked RETIRED are kept for reference only and must not be reintroduced to the
+homepage without approval.
+
 After approval:
 
 - Copy in quotation marks is approved for use.
@@ -46,12 +52,40 @@ After approval:
 | Supporting line | “Color your step.” |
 | Provenance line | “Made with color in Morocco.” |
 | Primary shopping CTA | “Shop the drop” |
-| Editions CTA | “Discover the editions” |
+| Editions CTA | “Explore the editions” |
 | Product CTA | “Add to cart” |
-| COD reassurance | “Pay when your order arrives.” |
+| Payment reassurance | “Pay when your order arrives.” |
 
-The master message must remain the main homepage statement. The supporting and
-provenance lines should reinforce it, not compete with it.
+The master message must remain the main homepage statement. The supporting
+line should reinforce it, not compete with it.
+
+### Geography rule (approved 28 July 2026)
+
+Morocco is the launch market, not a brand message. The provenance line and any
+other reference to Morocco **must not appear on the homepage** — not in the
+hero, major headings, product sections, brand slogans, the brand-story block,
+or the footer tagline.
+
+Morocco may appear in:
+
+- The Our Story page, as factual company-origin information
+- FAQ and policy answers where it is operationally relevant
+- Search metadata
+
+Do not replace Morocco with another country or with a global-delivery claim.
+
+### Payment-visibility rule (approved 28 July 2026)
+
+Cash on delivery is an available payment method, not a selling proposition. Do
+not repeat it across the homepage and never use it as a slogan or primary CTA.
+
+It may appear only in:
+
+- The announcement bar
+- The compact reassurance strip near the bottom of the homepage
+- Cart and checkout interface copy
+- FAQ and payment information
+- Product-page purchase areas
 
 ## Site-Wide Interface Copy
 
@@ -59,7 +93,10 @@ provenance lines should reinforce it, not compete with it.
 
 Primary version:
 
-> “Delivery: 35 MAD · Pay cash on delivery”
+> “Delivery 35 MAD · Pay on delivery available”
+
+This replaces the earlier “Delivery: 35 MAD · Pay cash on delivery” wording,
+which stated the payment method too assertively for a site-wide bar.
 
 Do not add a delivery-time promise, free-shipping threshold, sale message, or
 countdown without explicit approval.
@@ -176,30 +213,33 @@ selected variant.
 
 > “235 MAD”
 
-### Box experience
+#### Edition card CTA
 
-**Eyebrow**
+> “Explore the edition”
 
-> “More than the pair”
+#### Packaging line (merged into the featured-editions section)
 
-**Heading**
+> “Each edition arrives in a Luma rigid magnetic box. One size covers all three
+> pairs.”
 
-> “Open the mood.”
+The former standalone “Box experience” section has been retired; its packaging
+message now appears in the featured-editions header, and the box story lives on
+the edition product pages.
 
-**Body**
+### Retired homepage sections (28 July 2026)
 
-> “Every edition brings three fixed designs together in a Luma rigid magnetic
-> box. The artwork continues from the socks to the moment you open it.”
+The following sections were removed from the homepage to make it shorter and
+more product-led. Their copy is retained here only for reference and must not
+be reintroduced to the homepage without approval:
 
-**Supporting note**
+- **Box experience** — “Open the mood.” (packaging message merged above)
+- **How Luma works** — “Your mood, in three steps.”
+- **Mood discovery** — “Pick your mood.” (the approved mood labels below remain
+  valid as product metadata and shop-page copy)
 
-> “One edition. Three designs. One size for all three pairs.”
+Retired copy for reference only:
 
-**CTA**
-
-> “Explore the boxes”
-
-### How Luma works
+### How Luma works (RETIRED — not for homepage use)
 
 **Heading**
 
@@ -229,7 +269,10 @@ selected variant.
 
 > “Place your order through Shopify and pay cash when it arrives.”
 
-### Mood discovery
+### Mood discovery (RETIRED as a homepage section)
+
+Mood labels remain approved product metadata and shop-page copy. They are no
+longer a standalone homepage section.
 
 **Eyebrow**
 
@@ -256,7 +299,7 @@ Approved discovery labels:
 These labels are discovery copy. Implement them as filters only after the
 matching Shopify tags or metafields are approved and populated.
 
-### Standalone products
+### Individual socks
 
 **Eyebrow**
 
@@ -264,15 +307,21 @@ matching Shopify tags or metafields are approved and populated.
 
 **Heading**
 
-> “Start with a favorite.”
+> “Shop individual socks.”
 
-**Body**
+**Supporting line**
 
-> “Four standalone designs. Same question: which one feels most like you?”
+> “Single pairs, 80 MAD each.”
 
 **CTA**
 
-> “Shop single pairs”
+> “Shop all socks”
+
+Use one section-level call to action. Do not place competing buttons on
+individual product cards; the whole card is the link.
+
+The earlier heading “Start with a favorite.” and CTA “Shop single pairs”
+are retired from the homepage.
 
 ### Product-information section
 
@@ -294,29 +343,47 @@ Until then, use a brand-led section instead of a technical quality section:
 > “Luma turns the part of your outfit people overlook into the part they
 > remember.”
 
-### Brand story
+**CTA**
 
-**Eyebrow**
+> “Find your pair”
 
-> “This is Luma”
+This is the homepage’s single editorial section. Keep it to one headline and no
+more than two short sentences.
+
+### Brand story (homepage)
+
+Approved 28 July 2026. This replaces the longer “Built from the ankle up.”
+block, which is retired from the homepage.
 
 **Heading**
 
-> “Built from the ankle up.”
+> “More than something you wear.”
 
 **Body**
 
-> “Luma began in Morocco with a simple idea: socks do not have to disappear
-> into an outfit. They can carry a mood, start a conversation, or show a side
-> of you before you say a word.”
-
-**Closing line**
-
-> “Made with color in Morocco.”
+> “Luma turns everyday socks into a canvas for color, character, and
+> self-expression.”
 
 **CTA**
 
-> “Read our story”
+> “Meet Luma”
+
+Keep this to one compact block. Do not mention Morocco here. The full origin
+narrative belongs on the Our Story page.
+
+### Reassurance strip
+
+Approved 28 July 2026. A compact functional strip near the bottom of the
+homepage, visually secondary:
+
+| Label | Value |
+| --- | --- |
+| Sizes | `EU 36–40 and EU 41–46` |
+| Delivery | `35 MAD` |
+| Payment | `Pay on delivery available` |
+
+Do not add shipping times, exchange promises, material claims, discounts,
+reviews, or guarantees to this strip.
 
 ### Customer-content state
 
@@ -348,7 +415,10 @@ Only make the handle clickable after its final Instagram URL is verified.
 
 > “See all questions”
 
-Use only the approved answers from the FAQ section below.
+Show no more than three questions on the homepage, collapsed by default, using
+only the approved answers from the FAQ section below. The three currently in
+use are “What sizes are available?”, “Can I build my own box?”, and “How can I
+pay?”.
 
 ### Newsletter
 
@@ -886,9 +956,8 @@ returns, exchanges, materials, care, or refunds until those rules are approved.
 
 > “Socks for every side of you.”
 
-**Provenance**
-
-> “Made with color in Morocco.”
+The provenance line “Made with color in Morocco.” is **not** used in the
+footer (see the geography rule above).
 
 Suggested footer groups:
 

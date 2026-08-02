@@ -47,9 +47,6 @@ export function Footer() {
           <p className="font-display text-2xl text-luma-white">
             Socks for every side of you.
           </p>
-          <p className="text-sm text-cyber-yellow">
-            Made with color in Morocco.
-          </p>
         </div>
         {FOOTER_GROUPS.map((group) => (
           <nav key={group.heading} aria-label={group.heading}>
