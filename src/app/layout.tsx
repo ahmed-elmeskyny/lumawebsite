@@ -3,6 +3,7 @@ import { bodyFont, displayFont } from "@/lib/fonts";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CartProvider } from "@/components/cart/CartProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,10 +32,12 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <AnnouncementBar />
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <CartProvider>
+          <AnnouncementBar />
+          <Header />
+          <main id="main-content">{children}</main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

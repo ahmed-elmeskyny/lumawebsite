@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useCart } from "@/components/cart/CartProvider";
 
 /**
  * Primary navigation per docs/CONTENT.md. Destinations are future routes
@@ -17,6 +18,7 @@ const NAV_LINKS = [
 ] as const;
 
 export function Header() {
+  const { itemCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
   const openButtonRef = useRef<HTMLButtonElement>(null);
@@ -100,18 +102,25 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Cart is not functional in Checkpoint 1; disabled placeholder,
-              never a fake control. */}
-          <button
-            type="button"
-            disabled
-            aria-label="Cart, 0 items (not yet available)"
-            title="Cart is not available yet"
-            className="flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl px-2 text-[0.95rem] font-medium text-onyx/45"
+          {/* Local cart prototype: the count is real for items added in
+              this session, but there is no checkout until Shopify. */}
+          <p
+            aria-label={`Cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`}
+            title="Cart preview — checkout is not available yet"
+            className="flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl px-2 text-[0.95rem] font-semibold text-onyx"
           >
             <CartIcon />
-            <span aria-hidden="true">0</span>
-          </button>
+            <span
+              aria-hidden="true"
+              className={
+                itemCount > 0
+                  ? "flex h-5 min-w-5 items-center justify-center rounded-full bg-celtic-blue px-1 text-xs text-luma-white"
+                  : "text-onyx/45"
+              }
+            >
+              {itemCount}
+            </span>
+          </p>
 
           <button
             ref={openButtonRef}

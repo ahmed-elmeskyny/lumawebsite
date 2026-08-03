@@ -1,14 +1,17 @@
-import { getStandaloneProducts } from "@/lib/catalogue";
+import { getAllSockDesigns } from "@/lib/catalogue";
 import { ProductCard } from "@/components/product/ProductCard";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { GhostType } from "@/components/ui/GhostType";
 
 /**
- * Individual socks grid. One section-level CTA rather than competing
- * buttons on each card — the cards themselves are fully clickable.
+ * Every sock design in the catalogue.
+ *
+ * The four standalone pairs are purchasable and quick-addable; the six
+ * edition designs are shown without a price and link to their edition,
+ * because they are not sold separately at launch (docs/PRODUCTS.md).
  */
 export function StandalonePairs() {
-  const products = getStandaloneProducts();
+  const designs = getAllSockDesigns();
 
   return (
     <section
@@ -29,15 +32,17 @@ export function StandalonePairs() {
               id="standalone-heading"
               className="mt-3 font-display text-[clamp(2.5rem,7vw,4rem)] leading-[0.95] tracking-tight text-onyx"
             >
-              Shop individual socks.
+              Meet every design.
             </h2>
           </div>
-          <p className="text-onyx/75">Single pairs, 80 MAD each.</p>
+          <p className="max-w-xs text-onyx/75">
+            Four sold as single pairs at 80 MAD. Six live inside the editions.
+          </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.handle} product={product} />
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5 lg:gap-5">
+          {designs.map((item) => (
+            <ProductCard key={item.key} item={item} />
           ))}
         </div>
 

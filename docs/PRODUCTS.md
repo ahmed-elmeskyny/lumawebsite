@@ -35,15 +35,23 @@ free-shipping threshold, delivery estimate, or scarcity message.
 
 ## Launch Catalogue
 
-The baseline launch catalogue contains six Shopify products:
+**Revised 28 July 2026.** The launch catalogue contains **ten** Shopify
+products:
 
 - Two fixed three-pair edition boxes
-- Four standalone single-pair socks
+- Eight standalone single-pair socks
 
-The six designs contained in the editions are confirmed edition components, but
-they are **not separate Shopify products in this baseline**. Do not offer an
-edition component as an individual pair unless the user explicitly approves
-that change.
+Four designs that appear inside the editions are **also sold as single
+pairs**: Kickflip Luma, Luma Doodle, Plus Pulse, and Vital Signs.
+
+Only two designs remain **edition-exclusive** and must never be offered as
+individual pairs:
+
+- **Watch Your Step** — Color Your Steps only
+- **Luma Med Team** — Healthy Shifts only
+
+This supersedes the earlier baseline, in which all six edition designs were
+edition-exclusive and the catalogue held six products.
 
 ### Fixed editions
 
@@ -66,19 +74,30 @@ replace, remove, or exchange a design while configuring the product.
 | Daydream | `daydream` | 80 MAD | Single pair |
 | Shroom Pop | `shroom-pop` | 80 MAD | Single pair |
 | Vibe Attack | `vibe-attack` | 80 MAD | Single pair |
+| Kickflip Luma | `kickflip-luma` | 80 MAD | Single pair (also in Color Your Steps) |
+| Luma Doodle | `luma-doodle` | 80 MAD | Single pair (also in Color Your Steps) |
+| Plus Pulse | `plus-pulse` | 80 MAD | Single pair (also in Healthy Shifts) |
+| Vital Signs | `vital-signs` | 80 MAD | Single pair (also in Healthy Shifts) |
 
-These four products are not assigned to either fixed edition.
+The first four are not assigned to either fixed edition. The last four are
+sold both individually and as part of their edition; buying the edition does
+not change their individual availability.
+
+Approved customer-facing copy (description and mood labels) does not yet
+exist for Kickflip Luma, Luma Doodle, Plus Pulse, or Vital Signs. Their
+product pages must show only name, type, price, size, and imagery until
+`CONTENT.md` is extended.
 
 ### Edition components
 
-| Design | Edition | Baseline sale status |
+| Design | Edition | Sale status |
 | --- | --- | --- |
-| Kickflip Luma | Color Your Steps | Included in edition; not a separate listing |
-| Luma Doodle | Color Your Steps | Included in edition; not a separate listing |
-| Watch Your Step | Color Your Steps | Included in edition; not a separate listing |
-| Plus Pulse | Healthy Shifts | Included in edition; not a separate listing |
-| Vital Signs | Healthy Shifts | Included in edition; not a separate listing |
-| Luma Med Team | Healthy Shifts | Included in edition; not a separate listing |
+| Kickflip Luma | Color Your Steps | Also sold as a single pair |
+| Luma Doodle | Color Your Steps | Also sold as a single pair |
+| Watch Your Step | Color Your Steps | **Edition-exclusive** — never sold alone |
+| Plus Pulse | Healthy Shifts | Also sold as a single pair |
+| Vital Signs | Healthy Shifts | Also sold as a single pair |
+| Luma Med Team | Healthy Shifts | **Edition-exclusive** — never sold alone |
 
 Edition component names may appear on the edition product page, in image alt
 text, in the cart line-item description, and in edition storytelling. They must

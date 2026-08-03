@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getFeaturedEditions } from "@/lib/catalogue";
+import { getFeaturedEditions, toCardItem } from "@/lib/catalogue";
 import { ProductCard } from "@/components/product/ProductCard";
 import { CollectionNav } from "@/components/product/CollectionNav";
 
@@ -25,7 +25,7 @@ export default function EditionsCollectionPage() {
       <CollectionNav current="/collections/editions" />
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:gap-8">
         {editions.map((product) => (
-          <ProductCard key={product.handle} product={product} />
+          <ProductCard key={product.handle} item={toCardItem(product)} />
         ))}
       </div>
     </div>

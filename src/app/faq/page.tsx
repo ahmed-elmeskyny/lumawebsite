@@ -46,12 +46,12 @@ const FAQ_ITEMS = [
   {
     question: "Can I buy the edition designs separately?",
     answer:
-      "Not at launch. The six designs inside Color Your Steps and Healthy Shifts are currently available only through their editions.",
+      "Most of them, yes. Kickflip Luma, Luma Doodle, Plus Pulse, and Vital Signs are also sold as single pairs. Watch Your Step and Luma Med Team are available only inside their editions.",
   },
   {
     question: "Which designs are sold as single pairs?",
     answer:
-      "Hypno Wave, Daydream, Shroom Pop, and Vibe Attack are available as standalone pairs.",
+      "Hypno Wave, Daydream, Shroom Pop, Vibe Attack, Kickflip Luma, Luma Doodle, Plus Pulse, and Vital Signs are available as standalone pairs. Watch Your Step and Luma Med Team come only with their editions.",
   },
   {
     question: "Does a single pair come in the rigid box?",

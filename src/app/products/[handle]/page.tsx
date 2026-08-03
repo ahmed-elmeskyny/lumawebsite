@@ -77,9 +77,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <p className="mt-5 text-2xl font-semibold text-onyx">
             {formatMad(product.priceMad)}
           </p>
-          <p className="mt-4 max-w-prose text-lg leading-relaxed text-onyx/80">
-            {product.description}
-          </p>
+          {product.description && (
+            <p className="mt-4 max-w-prose text-lg leading-relaxed text-onyx/80">
+              {product.description}
+            </p>
+          )}
 
           <div className="mt-7">
             <PurchasePanel product={product} />

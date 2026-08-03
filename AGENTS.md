@@ -1,4 +1,4 @@
-# Luma Website — Claude Code Instructions
+# Luma Website — Codex Instructions
 
 Read this file before inspecting, planning, or changing the project.
 

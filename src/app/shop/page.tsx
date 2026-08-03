@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllProducts } from "@/lib/catalogue";
+import { getAllProducts, toCardItem } from "@/lib/catalogue";
 import { ProductCard } from "@/components/product/ProductCard";
 import { CollectionNav } from "@/components/product/CollectionNav";
 
@@ -24,7 +24,7 @@ export default function ShopPage() {
       <CollectionNav current="/shop" />
       <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
         {products.map((product) => (
-          <ProductCard key={product.handle} product={product} />
+          <ProductCard key={product.handle} item={toCardItem(product)} />
         ))}
       </div>
     </div>

@@ -77,6 +77,8 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         ),
       },
     ],
+    // Placeholder until Shopify owns inventory (see types/product.ts)
+    inStock: true,
     sizeRanges: SIZE_RANGES,
     image: square(
       "/assets/editions/luma-color-your-steps-closed-v1.png",
@@ -140,6 +142,8 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         ),
       },
     ],
+    // Placeholder until Shopify owns inventory (see types/product.ts)
+    inStock: true,
     sizeRanges: SIZE_RANGES,
     image: square(
       "/assets/editions/luma-healthy-shifts-closed-v1.png",
@@ -173,6 +177,8 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     description:
       "Hypno Wave turns a repeating visual rhythm into the detail your outfit will not ignore. Wear it when simple needs a sharper edge.",
     moodTags: ["Bold", "Hypnotic", "Graphic"],
+    // Placeholder until Shopify owns inventory (see types/product.ts)
+    inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
       "/assets/products/socks/sock-hypno-wave.jpg",
@@ -200,6 +206,8 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     description:
       "Daydream brings an easy, imaginative mood to whatever you are wearing. A little escape, one step at a time.",
     moodTags: ["Dreamy", "Chill", "Playful"],
+    // Placeholder until Shopify owns inventory (see types/product.ts)
+    inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
       "/assets/products/socks/sock-daydream.jpg",
@@ -227,6 +235,8 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     description:
       "Shroom Pop leans into the unexpected with a playful mood made to stand out. Wear it when normal feels a little too normal.",
     moodTags: ["Weird", "Playful", "Colorful"],
+    // Placeholder until Shopify owns inventory (see types/product.ts)
+    inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
       "/assets/products/socks/sock-shroom-pop.jpg",
@@ -254,6 +264,8 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     description:
       "Vibe Attack brings full-volume energy to the smallest part of your outfit. Let the pair make the first move.",
     moodTags: ["Loud", "Energetic", "Graphic"],
+    // Placeholder until Shopify owns inventory (see types/product.ts)
+    inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
       "/assets/products/socks/sock-vibe-attack.jpg",
@@ -269,6 +281,108 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       packshot(
         "/assets/products/socks/sock-vibe-attack.jpg",
         "Vibe Attack socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "kickflip-luma",
+    name: "Kickflip Luma",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "The mascot, mid-trick, all over your ankles.",
+    // Approved product copy pending: promoted to standalone sale
+    // 28 July 2026; docs/CONTENT.md has no description or mood tags yet.
+    inStock: true,
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-kickflip-luma.jpg",
+      "Kickflip Luma socks, front view",
+    ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-kickflip-luma-card.png",
+      "Kickflip Luma socks, front view",
+      363,
+      712,
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-kickflip-luma.jpg",
+        "Kickflip Luma socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "luma-doodle",
+    name: "Luma Doodle",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "Scribbles, symbols, and a friendly face.",
+    inStock: true,
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-luma-doodle.jpg",
+      "Luma Doodle socks, front view",
+    ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-luma-doodle-card.png",
+      "Luma Doodle socks, front view",
+      363,
+      712,
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-luma-doodle.jpg",
+        "Luma Doodle socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "plus-pulse",
+    name: "Plus Pulse",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "A quiet grid of plus signs in cool teal.",
+    inStock: true,
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-plus-pulse.jpg",
+      "Plus Pulse socks, front view",
+    ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-plus-pulse-card.png",
+      "Plus Pulse socks, front view",
+      363,
+      712,
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-plus-pulse.jpg",
+        "Plus Pulse socks, front view",
+      ),
+    ],
+  },
+  {
+    handle: "vital-signs",
+    name: "Vital Signs",
+    type: "standalone",
+    priceMad: 80,
+    shortDescription: "Medical-inspired icons on deep purple.",
+    inStock: true,
+    sizeRanges: SIZE_RANGES,
+    image: packshot(
+      "/assets/products/socks/sock-vital-signs.jpg",
+      "Vital Signs socks, front view",
+    ),
+    cardImage: cutout(
+      "/assets/products/socks/cutout/sock-vital-signs-card.png",
+      "Vital Signs socks, front view",
+      363,
+      712,
+    ),
+    gallery: [
+      packshot(
+        "/assets/products/socks/sock-vital-signs.jpg",
+        "Vital Signs socks, front view",
       ),
     ],
   },

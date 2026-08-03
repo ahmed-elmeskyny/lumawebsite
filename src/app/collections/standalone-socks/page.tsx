@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getStandaloneProducts } from "@/lib/catalogue";
+import { getStandaloneProducts, toCardItem } from "@/lib/catalogue";
 import { ProductCard } from "@/components/product/ProductCard";
 import { CollectionNav } from "@/components/product/CollectionNav";
 
@@ -24,7 +24,7 @@ export default function StandaloneCollectionPage() {
       <CollectionNav current="/collections/standalone-socks" />
       <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
         {products.map((product) => (
-          <ProductCard key={product.handle} product={product} />
+          <ProductCard key={product.handle} item={toCardItem(product)} />
         ))}
       </div>
     </div>
