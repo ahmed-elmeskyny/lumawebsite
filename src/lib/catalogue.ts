@@ -29,14 +29,18 @@ export function getProductByHandle(
 
 /** Normalizes a sellable product into the shared card shape. */
 export function toCardItem(product: CatalogueProduct): CardItem {
+  const isEdition = product.type === "edition";
   return {
     key: product.handle,
     name: product.name,
     image: product.cardImage ?? product.image,
     // Editions reveal their open box on hover; the first gallery entry is
     // the open-filled render.
-    hoverImage: product.type === "edition" ? product.gallery[0] : undefined,
-    href: `/products/${product.handle}`,
+    hoverImage: isEdition ? product.gallery[0] : undefined,
+    // Editions lead to their story page, which is also where they sell.
+    href: isEdition
+      ? `/editions/${product.handle}`
+      : `/products/${product.handle}`,
     fieldKey: product.handle,
     typeLabel: product.type === "edition" ? "3-pair edition" : "Single pair",
     moodTags: product.moodTags,
@@ -68,7 +72,7 @@ export function getAllSockDesigns(): readonly CardItem[] {
         key: `${edition.handle}-${component.name}`,
         name: component.name,
         image: component.image,
-        href: `/products/${edition.handle}`,
+        href: `/editions/${edition.handle}`,
         fieldKey: edition.handle,
         typeLabel: "Edition only",
         purchasable: false,

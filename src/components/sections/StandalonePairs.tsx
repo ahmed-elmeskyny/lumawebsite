@@ -6,9 +6,10 @@ import { GhostType } from "@/components/ui/GhostType";
 /**
  * Every sock design in the catalogue.
  *
- * The four standalone pairs are purchasable and quick-addable; the six
- * edition designs are shown without a price and link to their edition,
- * because they are not sold separately at launch (docs/PRODUCTS.md).
+ * Eight designs are purchasable and quick-addable as single pairs. Two —
+ * Watch Your Step and Luma Med Team — are edition-exclusive: shown
+ * without a price, linking to their edition instead of a product page
+ * (docs/PRODUCTS.md).
  */
 export function StandalonePairs() {
   const designs = getAllSockDesigns();
@@ -36,7 +37,8 @@ export function StandalonePairs() {
             </h2>
           </div>
           <p className="max-w-xs text-onyx/75">
-            Four sold as single pairs at 80 MAD. Six live inside the editions.
+            Eight sold as single pairs at 80 MAD. Two live only inside the
+            editions.
           </p>
         </div>
 
@@ -47,7 +49,7 @@ export function StandalonePairs() {
         </div>
 
         <div className="mt-10">
-          <CtaLink href="/shop" variant="dark">
+          <CtaLink href="/socks" variant="dark">
             Shop all socks
           </CtaLink>
         </div>

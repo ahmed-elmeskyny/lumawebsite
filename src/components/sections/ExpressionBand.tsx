@@ -59,7 +59,7 @@ export function ExpressionBand() {
             they remember.
           </p>
           <div className="mt-7">
-            <CtaLink href="/collections/standalone-socks" variant="dark">
+            <CtaLink href="/socks" variant="dark">
               Find your pair
             </CtaLink>
           </div>

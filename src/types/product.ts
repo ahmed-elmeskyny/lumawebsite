@@ -29,9 +29,10 @@ export interface EditionComponent {
 /**
  * Normalized shape for anything shown in a card grid.
  *
- * `purchasable: false` covers the six designs that exist only inside a
- * fixed edition. They carry no price and no add-to-cart, and link to
- * their edition — never to a product page that does not exist.
+ * `purchasable: false` covers designs that exist only inside a fixed
+ * edition (currently Watch Your Step and Luma Med Team). They carry no
+ * price and no add-to-cart, and link to their edition — never to a
+ * product page that does not exist.
  */
 export interface CardItem {
   key: string;

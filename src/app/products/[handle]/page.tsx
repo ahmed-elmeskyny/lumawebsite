@@ -11,15 +11,21 @@ import { Disclosure } from "@/components/ui/Disclosure";
 /** Edition-led gallery fields, consistent with the cards. */
 const EDITION_FIELDS: Record<string, string> = {
   "color-your-steps": "bg-crystal",
-  "healthy-shifts": "bg-classic-rose",
+  "healthy-shifts": "bg-light-green",
 };
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
 }
 
+/**
+ * Standalone pairs only. Editions sell on their story page at
+ * /editions/[handle]; old product URLs redirect there (next.config.ts).
+ */
 export function generateStaticParams() {
-  return getAllProducts().map((product) => ({ handle: product.handle }));
+  return getAllProducts()
+    .filter((product) => product.type === "standalone")
+    .map((product) => ({ handle: product.handle }));
 }
 
 export async function generateMetadata({

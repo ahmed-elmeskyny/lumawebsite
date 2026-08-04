@@ -25,6 +25,13 @@ const packshot = (src: string, alt: string): ProductImage => ({
   height: 1080,
 });
 
+const galleryPhoto = (src: string, alt: string): ProductImage => ({
+  src,
+  alt,
+  width: 2250,
+  height: 2251,
+});
+
 const cutout = (
   src: string,
   alt: string,
@@ -101,6 +108,22 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         "/assets/editions/luma-color-your-steps-top-down-v1.png",
         "Color Your Steps open box seen from above",
       ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-kickflip-luma-on-leg.jpg",
+        "Kickflip Luma socks worn on a green studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-luma-doodle-on-leg.jpg",
+        "Luma Doodle socks worn on a blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-watch-your-step-on-leg.jpg",
+        "Watch Your Step socks worn on a blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-color-your-steps.jpg",
+        "Color Your Steps edition material and fit information card",
+      ),
     ],
   },
   {
@@ -166,6 +189,22 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         "/assets/editions/luma-healthy-shifts-top-down-v1.png",
         "Healthy Shifts open box seen from above",
       ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-plus-pulse-on-leg.jpg",
+        "Plus Pulse socks worn on a teal studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-vital-signs-on-leg.jpg",
+        "Vital Signs socks worn on a blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-luma-med-team-on-leg.jpg",
+        "Luma Med Team socks worn on a green studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-healthy-shifts.jpg",
+        "Healthy Shifts material and fit information card",
+      ),
     ],
   },
   {
@@ -194,6 +233,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       packshot(
         "/assets/products/socks/sock-hypno-wave.jpg",
         "Hypno Wave socks, front view",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-hypno-wave-on-leg.jpg",
+        "Hypno Wave socks worn on a pale blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-standalone.jpg",
+        "Luma sock material and fit information card",
       ),
     ],
   },
@@ -224,6 +271,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         "/assets/products/socks/sock-daydream.jpg",
         "Daydream socks, front view",
       ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-daydream-on-leg.jpg",
+        "Daydream socks worn on a blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-standalone.jpg",
+        "Luma sock material and fit information card",
+      ),
     ],
   },
   {
@@ -252,6 +307,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       packshot(
         "/assets/products/socks/sock-shroom-pop.jpg",
         "Shroom Pop socks, front view",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-shroom-pop-on-leg.jpg",
+        "Shroom Pop socks worn on a neutral studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-standalone.jpg",
+        "Luma sock material and fit information card",
       ),
     ],
   },
@@ -282,6 +345,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         "/assets/products/socks/sock-vibe-attack.jpg",
         "Vibe Attack socks, front view",
       ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-vibe-attack-on-leg.jpg",
+        "Vibe Attack socks worn on a green studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-standalone.jpg",
+        "Luma sock material and fit information card",
+      ),
     ],
   },
   {
@@ -309,6 +380,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         "/assets/products/socks/sock-kickflip-luma.jpg",
         "Kickflip Luma socks, front view",
       ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-kickflip-luma-on-leg.jpg",
+        "Kickflip Luma socks worn on a green studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-color-your-steps.jpg",
+        "Color Your Steps edition material and fit information card",
+      ),
     ],
   },
   {
@@ -333,6 +412,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       packshot(
         "/assets/products/socks/sock-luma-doodle.jpg",
         "Luma Doodle socks, front view",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-luma-doodle-on-leg.jpg",
+        "Luma Doodle socks worn on a blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-color-your-steps.jpg",
+        "Color Your Steps edition material and fit information card",
       ),
     ],
   },
@@ -359,6 +446,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
         "/assets/products/socks/sock-plus-pulse.jpg",
         "Plus Pulse socks, front view",
       ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-plus-pulse-on-leg.jpg",
+        "Plus Pulse socks worn on a teal studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-healthy-shifts.jpg",
+        "Healthy Shifts material and fit information card",
+      ),
     ],
   },
   {
@@ -383,6 +478,14 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
       packshot(
         "/assets/products/socks/sock-vital-signs.jpg",
         "Vital Signs socks, front view",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/sock-vital-signs-on-leg.jpg",
+        "Vital Signs socks worn on a blue studio background",
+      ),
+      galleryPhoto(
+        "/assets/products/gallery/info-card-healthy-shifts.jpg",
+        "Healthy Shifts material and fit information card",
       ),
     ],
   },

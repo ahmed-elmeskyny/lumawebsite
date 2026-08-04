@@ -40,8 +40,8 @@ export function Hero() {
             pair into part of your story.
           </p>
           <div className="motion-rise-delayed mt-8 flex flex-wrap items-center gap-4">
-            <CtaLink href="/shop">Shop the drop</CtaLink>
-            <CtaLink href="/collections/editions" variant="quietLight">
+            <CtaLink href="/socks">Shop the drop</CtaLink>
+            <CtaLink href="/editions" variant="quietLight">
               Explore the editions
             </CtaLink>
           </div>

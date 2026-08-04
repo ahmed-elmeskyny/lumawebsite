@@ -78,8 +78,8 @@ export function ProductCard({ item }: { item: CardItem }) {
 
       {/* Inset label — keeps commerce facts legible on any colour field */}
       <div className="relative m-2 mt-0 flex-1 rounded-[1.25rem] bg-luma-white px-4 py-3.5 sm:px-5">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-display text-xl leading-none text-onyx sm:text-2xl">
+        <div className="flex items-start justify-between gap-2 sm:gap-3">
+          <h3 className="min-w-0 font-display text-lg leading-tight text-onyx sm:text-2xl">
             <Link
               href={item.href}
               className="rounded-sm after:absolute after:inset-0 after:rounded-[1.75rem]"
@@ -88,17 +88,17 @@ export function ProductCard({ item }: { item: CardItem }) {
             </Link>
           </h3>
           {item.priceMad !== undefined && (
-            <span className="shrink-0 rounded-full bg-cyber-yellow px-3 py-1 font-display text-sm leading-none text-onyx sm:text-base">
+            <span className="shrink-0 rounded-full bg-cyber-yellow px-2.5 py-1 font-display text-xs leading-none text-onyx sm:px-3 sm:text-base">
               {formatMad(item.priceMad)}
             </span>
           )}
         </div>
 
         <div className="mt-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-          <p className="text-[0.75rem] font-bold uppercase tracking-[0.1em] text-onyx">
+          <p className="text-[0.8rem] font-extrabold uppercase tracking-[0.08em] text-onyx">
             {item.typeLabel}
             {item.moodTags && item.moodTags.length > 0 && (
-              <span className="font-medium normal-case tracking-normal text-onyx/75">
+              <span className="font-bold normal-case tracking-normal text-onyx/85">
                 {" · "}
                 {item.moodTags.slice(0, 2).join(", ")}
               </span>
@@ -108,7 +108,7 @@ export function ProductCard({ item }: { item: CardItem }) {
           {item.purchasable ? (
             <StockBadge inStock={item.inStock !== false} />
           ) : (
-            <span className="text-[0.75rem] font-bold text-celtic-blue">
+            <span className="text-[0.8rem] font-extrabold text-celtic-blue">
               {item.editionName}
             </span>
           )}
@@ -122,7 +122,7 @@ function StockBadge({ inStock }: { inStock: boolean }) {
   return (
     // Text stays Onyx for contrast; the dot carries the colour cue, and
     // the wording carries the meaning so colour is never the only signal.
-    <span className="flex items-center gap-1.5 text-[0.75rem] font-bold text-onyx">
+    <span className="flex items-center gap-1.5 text-[0.8rem] font-extrabold text-onyx">
       <span
         aria-hidden="true"
         className={`h-2 w-2 rounded-full ${

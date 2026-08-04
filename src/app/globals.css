@@ -125,6 +125,33 @@ html {
   }
 }
 
+/*
+ * Scroll-revealed story beats (components/ui/Reveal.tsx).
+ *
+ * Fail-open by design: content is visible by default. JavaScript only
+ * adds `data-reveal="armed"` to elements that are below the fold at
+ * mount, so a JS failure, a crawler, or a reduced-motion visitor always
+ * sees the full page — and above-fold content never flashes.
+ */
+[data-reveal="armed"] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .motion-rise {
     animation: luma-rise 0.5s ease-out both;

@@ -31,8 +31,8 @@ export function FeaturedEditions() {
             </h2>
           </div>
           <p className="max-w-sm text-onyx/75">
-            Each edition arrives in a Luma rigid magnetic box. One size covers
-            all three pairs.
+            Each edition tells a story in three pairs, in a Luma rigid magnetic
+            box. One size covers all three.
           </p>
         </div>
 

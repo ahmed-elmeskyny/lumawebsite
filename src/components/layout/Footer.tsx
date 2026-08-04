@@ -21,9 +21,10 @@ const LINK_GROUPS = [
   {
     heading: "Shop",
     links: [
-      { href: "/shop", label: "All products" },
-      { href: "/collections/editions", label: "Editions" },
-      { href: "/collections/standalone-socks", label: "Standalone socks" },
+      { href: "/socks", label: "Luma's socks" },
+      { href: "/editions", label: "Editions" },
+      { href: "/editions/color-your-steps", label: "Color Your Steps" },
+      { href: "/editions/healthy-shifts", label: "Healthy Shifts" },
     ],
   },
   {
