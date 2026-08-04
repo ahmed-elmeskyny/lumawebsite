@@ -514,3 +514,27 @@ newsletter provider, verified Instagram URL. `SHOPIFY.md` and
 Everything else (remaining renders, sock packshots, other mascot poses,
 stickers, animations) is deferred to later checkpoints. No GIF ships in
 Checkpoint 1.
+
+## 14. Code-Drawn Placeholders Currently Shipping
+
+Recorded per the asset rules in `CLAUDE.md`: placeholders must be marked
+and recorded, never quietly substituted.
+
+| Placeholder | Where it appears | Status |
+| --- | --- | --- |
+| `src/components/edition/TemporaryAmbulance.tsx` | Healthy Shifts hero badge and the journey route marker (`/editions/healthy-shifts`) | **Placeholder.** A deliberately simple, code-drawn route marker — it does not imitate finished Luma character artwork. Replace with the commissioned campaign illustration; the page layout takes the swap without change. |
+
+No other placeholder stands in for a real Luma asset. Every sock packshot,
+cutout, box render, mascot pose, and sticker on the site is the real
+supplied artwork.
+
+### Values still needing confirmation
+
+These live in `src/config/store.ts`, each marked `TODO`, and are used from
+there so a correction lands everywhere at once:
+
+- Support email, phone, WhatsApp number, and support hours
+- Delivery estimate and delivery areas
+- Return window and who pays return shipping
+- Registered company name and business address
+- Production domain (`siteUrl`) — drives metadata, `sitemap.xml`, `robots.txt`

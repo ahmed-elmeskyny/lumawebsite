@@ -40,7 +40,7 @@ export function CtaLink({
     <Link
       href={href}
       className={cn(
-        "inline-flex min-h-13 items-center justify-center rounded-full px-7 py-3.5 text-base font-semibold transition-all hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+        "inline-flex min-h-13 items-center justify-center rounded-full px-7 py-3.5 text-base transition-all hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
         VARIANTS[variant],
         className,
       )}

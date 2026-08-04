@@ -136,10 +136,10 @@ function StoryScene({
 
       <Reveal delayMs={100} className={flip ? "lg:order-1" : ""}>
         <div className="relative max-w-xl">
-          <p className="inline-flex rounded-full bg-onyx px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-luma-white">
+          <p className="subtitle inline-flex rounded-full bg-onyx px-4 py-2 text-xs uppercase tracking-[0.16em] text-luma-white">
             {medical ? `Route stop ${index + 1}` : `Chapter ${index + 1}`}
           </p>
-          <p className="mt-6 text-sm font-bold uppercase tracking-[0.16em] text-onyx/70">
+          <p className="subtitle mt-6 text-sm uppercase tracking-[0.16em] text-onyx">
             {beat.title}
           </p>
           <h2
@@ -148,7 +148,7 @@ function StoryScene({
           >
             {beat.design}
           </h2>
-          <p className="mt-6 max-w-prose text-lg font-semibold leading-relaxed text-onyx sm:text-xl">
+          <p className="mt-6 max-w-prose text-lg leading-relaxed text-onyx sm:text-xl">
             {beat.body}
           </p>
         </div>
@@ -170,7 +170,7 @@ export function EditionJourney({ story }: EditionJourneyProps) {
 
       <div className="relative z-20 mx-auto max-w-[1440px] px-4 pb-8 pt-20 pl-20 sm:pr-7 lg:px-12 lg:pb-16 lg:pt-28">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-celtic-blue">
+          <p className="subtitle text-sm uppercase tracking-[0.18em] text-celtic-blue">
             {medical ? "Luma is on call" : "Follow the footprints"}
           </p>
           <h2
@@ -180,7 +180,7 @@ export function EditionJourney({ story }: EditionJourneyProps) {
             {story.chapterHeading}
           </h2>
           <p
-            className={`relative z-10 mx-auto mt-6 max-w-2xl rounded-2xl px-4 py-2 text-lg font-semibold leading-relaxed text-onyx sm:text-xl ${
+            className={`relative z-10 mx-auto mt-6 max-w-2xl rounded-2xl px-4 py-2 text-lg leading-relaxed text-onyx sm:text-xl ${
               medical ? "bg-crystal/80" : "bg-eggshell/80"
             }`}
           >
@@ -207,7 +207,13 @@ export function EditionJourney({ story }: EditionJourneyProps) {
         }`}
       >
         <div className="absolute bottom-0 left-1/2 h-24 w-1 -translate-x-1/2 bg-current opacity-40" />
-        <div className="absolute bottom-0 left-1/2 size-8 -translate-x-1/2 rounded-full border-8 border-current bg-eggshell" />
+        {/* Fill matches the section behind it, so the dot reads as a hole
+            in the route rather than a stray eggshell disc on crystal. */}
+        <div
+          className={`absolute bottom-0 left-1/2 size-8 -translate-x-1/2 rounded-full border-8 border-current ${
+            medical ? "bg-crystal" : "bg-eggshell"
+          }`}
+        />
       </div>
     </section>
   );

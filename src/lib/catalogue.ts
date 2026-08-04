@@ -82,3 +82,21 @@ export function getAllSockDesigns(): readonly CardItem[] {
 
   return [...standalone.map(toCardItem), ...editionOnly];
 }
+
+/** Design names sold on their own, in catalogue order. */
+export function getStandaloneDesignNames(): readonly string[] {
+  return getStandaloneProducts().map((product) => product.name);
+}
+
+/**
+ * Design names that exist only inside an edition.
+ *
+ * Derived, never hardcoded: copy that names these designs or counts them
+ * must read from here, or it silently becomes wrong the moment one is
+ * promoted to a standalone product.
+ */
+export function getEditionOnlyDesignNames(): readonly string[] {
+  return getAllSockDesigns()
+    .filter((item) => !item.purchasable)
+    .map((item) => item.name);
+}

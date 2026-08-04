@@ -29,16 +29,16 @@ export function BlogCard({ post, priority = false }: { post: BlogPost; priority?
           />
         </div>
         <div className="flex flex-1 flex-col p-5 sm:p-6">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-celtic-blue">
+          <p className="subtitle text-xs uppercase tracking-[0.16em] text-celtic-blue">
             {post.category}
           </p>
           <h3 className="mt-2.5 font-display text-[1.75rem] leading-[0.96] tracking-tight text-onyx">
             {post.title}
           </h3>
-          <p className="mt-3 flex-1 text-[0.95rem] font-semibold leading-relaxed text-onyx">
+          <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-onyx">
             {post.excerpt}
           </p>
-          <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-celtic-blue">
+          <span className="mt-5 inline-flex items-center gap-2 text-sm text-celtic-blue">
             Read the story <span aria-hidden="true">→</span>
           </span>
         </div>

@@ -95,10 +95,10 @@ export function ProductCard({ item }: { item: CardItem }) {
         </div>
 
         <div className="mt-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-          <p className="text-[0.8rem] font-extrabold uppercase tracking-[0.08em] text-onyx">
+          <p className="subtitle text-[0.8rem] uppercase tracking-[0.08em] text-onyx">
             {item.typeLabel}
             {item.moodTags && item.moodTags.length > 0 && (
-              <span className="font-bold normal-case tracking-normal text-onyx/85">
+              <span className=" normal-case tracking-normal text-onyx/85">
                 {" · "}
                 {item.moodTags.slice(0, 2).join(", ")}
               </span>
@@ -108,7 +108,7 @@ export function ProductCard({ item }: { item: CardItem }) {
           {item.purchasable ? (
             <StockBadge inStock={item.inStock !== false} />
           ) : (
-            <span className="text-[0.8rem] font-extrabold text-celtic-blue">
+            <span className="text-[0.8rem] text-celtic-blue">
               {item.editionName}
             </span>
           )}
@@ -122,7 +122,7 @@ function StockBadge({ inStock }: { inStock: boolean }) {
   return (
     // Text stays Onyx for contrast; the dot carries the colour cue, and
     // the wording carries the meaning so colour is never the only signal.
-    <span className="flex items-center gap-1.5 text-[0.8rem] font-extrabold text-onyx">
+    <span className="flex items-center gap-1.5 text-[0.8rem] text-onyx">
       <span
         aria-hidden="true"
         className={`h-2 w-2 rounded-full ${

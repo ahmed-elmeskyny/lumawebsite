@@ -45,7 +45,7 @@ export function ExpressionBand() {
         </div>
 
         <div className="order-1 max-w-lg lg:order-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-onyx">
+          <p className="subtitle text-sm uppercase tracking-[0.16em] text-onyx">
             Small detail. Big energy.
           </p>
           <h2

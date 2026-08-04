@@ -33,10 +33,52 @@
   font-weight: 550;
 }
 
-/* Adelphi is a light face; body copy needs full-strength color to hold
-   contrast at interface sizes. */
+/*
+ * Adelphi ships a single static weight (see lib/fonts.ts), so a heavier
+ * `font-weight` can only be produced by browser synthesis. Long body copy
+ * is left unsynthesised — smeared paragraphs read worse, not stronger.
+ */
 body {
   font-synthesis-weight: none;
+}
+
+/*
+ * Section subtitles / eyebrows: the short, small, mostly-uppercase labels
+ * that introduce a heading. These were getting lost against their colour
+ * fields, so they opt back into weight synthesis. At this size the extra
+ * ink reads as weight rather than smear, and the wider tracking keeps the
+ * emboldened letterforms from closing up.
+ */
+.subtitle {
+  font-synthesis-weight: auto;
+  font-weight: 700;
+}
+
+/*
+ * Anything clickable gets the hand cursor. Tailwind's Preflight resets
+ * buttons to `cursor: default`, and a <label> wrapping a visually-hidden
+ * radio (the size pickers) never had one. Kept in @layer base so explicit
+ * utilities — `cursor-not-allowed` on sold-out controls — still win.
+ */
+@layer base {
+  a[href],
+  button,
+  select,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  summary,
+  [role="button"],
+  [role="link"],
+  label:has(input[type="radio"]),
+  label:has(input[type="checkbox"]) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  fieldset:disabled label {
+    cursor: not-allowed;
+  }
 }
 
 :focus-visible {

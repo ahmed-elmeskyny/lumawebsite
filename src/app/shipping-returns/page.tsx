@@ -3,7 +3,7 @@ import { PolicyPage, PolicySection } from "@/components/ui/PolicyPage";
 import { storeConfig } from "@/config/store";
 
 export const metadata: Metadata = {
-  title: "Shipping & Returns | Luma Socks",
+  title: "Shipping & Returns",
   description:
     "How Luma orders are delivered across Morocco, what delivery costs, and how returns work.",
 };

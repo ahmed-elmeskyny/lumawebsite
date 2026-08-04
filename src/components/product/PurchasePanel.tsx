@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { useId, useState } from "react";
 import { useCart } from "@/components/cart/CartProvider";
+import { storeConfig } from "@/config/store";
 import { cn } from "@/lib/cn";
+import { formatMad } from "@/lib/money";
 import type { CatalogueProduct, SizeRange } from "@/types/product";
 
 export function PurchasePanel({ product }: { product: CatalogueProduct }) {
@@ -34,7 +36,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
       <fieldset disabled={!product.inStock}>
         <legend
           id={groupId}
-          className="text-sm font-bold uppercase tracking-[0.12em] text-onyx"
+          className="subtitle text-sm uppercase tracking-[0.12em] text-onyx"
         >
           Select your size
         </legend>
@@ -45,7 +47,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
               <label
                 key={size}
                 className={cn(
-                  "inline-flex min-h-12 cursor-pointer items-center rounded-xl border-2 px-5 py-2.5 text-base font-semibold transition-colors focus-within:outline-2 focus-within:outline-celtic-blue focus-within:outline-offset-2",
+                  "inline-flex min-h-12 cursor-pointer items-center rounded-xl border-2 px-5 py-2.5 text-base transition-colors focus-within:outline-2 focus-within:outline-celtic-blue focus-within:outline-offset-2",
                   isSelected
                     ? "border-celtic-blue bg-celtic-blue text-luma-white"
                     : "border-onyx/30 text-onyx hover:border-onyx",
@@ -78,7 +80,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
       <div>
         <label
           htmlFor={"quantity-" + product.handle}
-          className="text-sm font-bold uppercase tracking-[0.12em] text-onyx"
+          className="subtitle text-sm uppercase tracking-[0.12em] text-onyx"
         >
           Quantity
         </label>
@@ -90,7 +92,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
               setAdded(false);
             }}
             aria-label="Decrease quantity"
-            className="flex h-12 w-12 items-center justify-center text-xl font-semibold text-onyx disabled:text-onyx/30"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg text-xl text-onyx transition-colors hover:bg-celtic-blue/15 hover:text-celtic-blue disabled:cursor-not-allowed disabled:bg-transparent disabled:text-onyx/30 motion-reduce:transition-none"
             disabled={quantity <= 1 || !product.inStock}
           >
             −
@@ -101,7 +103,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
             inputMode="numeric"
             readOnly
             value={quantity}
-            className="w-10 border-0 bg-transparent text-center text-base font-semibold text-onyx"
+            className="w-10 border-0 bg-transparent text-center text-base text-onyx"
           />
           <button
             type="button"
@@ -110,7 +112,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
               setAdded(false);
             }}
             aria-label="Increase quantity"
-            className="flex h-12 w-12 items-center justify-center text-xl font-semibold text-onyx disabled:text-onyx/30"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-lg text-xl text-onyx transition-colors hover:bg-celtic-blue/15 hover:text-celtic-blue disabled:cursor-not-allowed disabled:bg-transparent disabled:text-onyx/30 motion-reduce:transition-none"
             disabled={!product.inStock || quantity >= 99}
           >
             +
@@ -119,8 +121,10 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
       </div>
 
       <div className="rounded-2xl bg-eggshell p-4">
-        <p className="font-semibold text-onyx">Pay when your order arrives.</p>
-        <p className="mt-1 text-sm text-onyx/80">Delivery: 35 MAD</p>
+        <p className="text-onyx">Pay when your order arrives.</p>
+        <p className="mt-1 text-sm text-onyx/80">
+          Delivery: {formatMad(storeConfig.delivery.feeMad)}
+        </p>
       </div>
 
       <div>
@@ -128,7 +132,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
           type="button"
           onClick={addToCart}
           disabled={!selectedSize || !product.inStock}
-          className="inline-flex min-h-13 w-full items-center justify-center rounded-xl bg-celtic-blue px-6 py-3.5 text-lg font-semibold text-luma-white transition-colors hover:bg-onyx disabled:cursor-not-allowed disabled:bg-onyx/25"
+          className="inline-flex min-h-13 w-full items-center justify-center rounded-xl bg-celtic-blue px-6 py-3.5 text-lg text-luma-white transition-colors hover:bg-onyx disabled:cursor-not-allowed disabled:bg-onyx/25"
         >
           {!product.inStock
             ? "Out of stock"
@@ -138,7 +142,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
         </button>
         <p
           aria-live="polite"
-          className="mt-2 min-h-5 text-sm font-medium text-onyx/75"
+          className="mt-2 min-h-5 text-sm text-onyx/75"
         >
           {added
             ? quantity +
@@ -152,7 +156,7 @@ export function PurchasePanel({ product }: { product: CatalogueProduct }) {
         {added && (
           <Link
             href="/cart"
-            className="mt-2 inline-flex min-h-11 items-center font-bold text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
+            className="mt-2 inline-flex min-h-11 items-center text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
           >
             View your cart
           </Link>

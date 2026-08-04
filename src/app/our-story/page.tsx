@@ -5,7 +5,7 @@ import { GhostType } from "@/components/ui/GhostType";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Our Story | Luma Socks",
+  title: "Our Story",
   description:
     "Meet Luma and discover the belief behind a colorful sock brand built around creativity, character, and self-expression.",
 };
@@ -59,7 +59,7 @@ export default function OurStoryPage() {
 
         <div className="relative mx-auto grid min-h-[82svh] max-w-[1440px] items-center gap-10 px-4 py-16 sm:px-7 lg:grid-cols-[minmax(0,58fr)_minmax(0,42fr)] lg:px-12 lg:py-24">
           <Reveal className="relative z-10 max-w-4xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyber-yellow">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-cyber-yellow">
               The Luma story
             </p>
             <h1
@@ -70,7 +70,7 @@ export default function OurStoryPage() {
               <br />
               you are.
             </h1>
-            <p className="mt-8 max-w-2xl text-xl font-semibold leading-relaxed text-luma-white sm:text-2xl">
+            <p className="mt-8 max-w-2xl text-xl leading-relaxed text-luma-white sm:text-2xl">
               Luma is a movement of color, creativity, and self-expression—
               starting with the part of your outfit closest to the ground.
             </p>
@@ -100,7 +100,7 @@ export default function OurStoryPage() {
         </GhostType>
         <div className="relative mx-auto grid min-h-[75svh] max-w-[1440px] items-center gap-12 px-4 py-20 sm:px-7 lg:grid-cols-2 lg:gap-20 lg:px-12 lg:py-28">
           <Reveal className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-crystal">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-crystal">
               Before the color
             </p>
             <h2
@@ -122,7 +122,7 @@ export default function OurStoryPage() {
               unoptimized
               className="relative mx-auto h-auto w-[56%] max-w-[300px]"
             />
-            <p className="mx-auto mt-8 max-w-xl text-center text-lg font-semibold leading-relaxed text-luma-white/85 sm:text-xl">
+            <p className="mx-auto mt-8 max-w-xl text-center text-lg leading-relaxed text-luma-white/85 sm:text-xl">
               Luma was full of feeling, imagination, and color—but kept it all
               inside. In a world of sameness, being seen felt like the hardest
               thing to do.
@@ -168,7 +168,7 @@ export default function OurStoryPage() {
           </Reveal>
 
           <Reveal delayMs={100} className="relative z-10 max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-red">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-orange-red">
               The breakthrough
             </p>
             <h2
@@ -177,7 +177,7 @@ export default function OurStoryPage() {
             >
               Then the color found a way out.
             </h2>
-            <div className="mt-7 space-y-5 text-lg font-semibold leading-relaxed text-onyx sm:text-xl">
+            <div className="mt-7 space-y-5 text-lg leading-relaxed text-onyx sm:text-xl">
               <p>
                 Luma reached for a pair of socks and began creating. Every
                 color became a feeling. Every pattern became a story.
@@ -199,7 +199,7 @@ export default function OurStoryPage() {
       >
         <div className="mx-auto max-w-[1440px] px-4 py-20 sm:px-7 lg:px-12 lg:py-28">
           <Reveal className="mx-auto max-w-4xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-celtic-blue">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-celtic-blue">
               Who we are
             </p>
             <h2
@@ -208,7 +208,7 @@ export default function OurStoryPage() {
             >
               Your daily canvas.
             </h2>
-            <p className="mx-auto mt-7 max-w-3xl text-xl font-semibold leading-relaxed text-onyx sm:text-2xl">
+            <p className="mx-auto mt-7 max-w-3xl text-xl leading-relaxed text-onyx sm:text-2xl">
               Socks are more than something you wear. They can carry your
               mood, your personality, and that small spark that feels entirely
               your own.
@@ -254,7 +254,7 @@ export default function OurStoryPage() {
       <section aria-labelledby="belief-heading" className="bg-eggshell">
         <div className="mx-auto max-w-[1440px] px-4 py-20 sm:px-7 lg:px-12 lg:py-28">
           <Reveal className="max-w-4xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-luma-green">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-luma-green">
               Our belief
             </p>
             <h2
@@ -277,13 +277,13 @@ export default function OurStoryPage() {
                   >
                     {index + 1}
                   </span>
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-onyx/70">
+                  <p className="subtitle text-sm uppercase tracking-[0.18em] text-onyx">
                     {card.label}
                   </p>
                   <h3 className="mt-20 font-display text-[2.65rem] leading-[0.92] tracking-tight text-onyx">
                     {card.heading}
                   </h3>
-                  <p className="mt-5 text-lg font-semibold leading-relaxed text-onyx">
+                  <p className="mt-5 text-lg leading-relaxed text-onyx">
                     {card.body}
                   </p>
                 </article>
@@ -318,7 +318,7 @@ export default function OurStoryPage() {
           </Reveal>
 
           <Reveal delayMs={100} className="relative z-10 max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-celtic-blue">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-celtic-blue">
               Meet the mascot
             </p>
             <h2
@@ -327,7 +327,7 @@ export default function OurStoryPage() {
             >
               A movement needs a face.
             </h2>
-            <div className="mt-7 space-y-5 text-lg font-semibold leading-relaxed text-onyx sm:text-xl">
+            <div className="mt-7 space-y-5 text-lg leading-relaxed text-onyx sm:text-xl">
               <p>
                 That is Luma. Playful, curious, and always changing. Sometimes
                 cheeky, sometimes unexpectedly wise, but never afraid of
@@ -350,7 +350,7 @@ export default function OurStoryPage() {
       <section aria-labelledby="promise-heading" className="bg-luma-green text-luma-white">
         <div className="mx-auto grid max-w-[1440px] gap-14 px-4 py-20 sm:px-7 lg:grid-cols-[minmax(0,58fr)_minmax(0,42fr)] lg:items-center lg:px-12 lg:py-28">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyber-yellow">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-cyber-yellow">
               Our promise
             </p>
             <h2
@@ -361,7 +361,7 @@ export default function OurStoryPage() {
             </h2>
             <ul className="mt-10 space-y-5">
               {promises.map((promise, index) => (
-                <li key={promise} className="flex gap-4 text-lg font-semibold leading-relaxed sm:text-xl">
+                <li key={promise} className="flex gap-4 text-lg leading-relaxed sm:text-xl">
                   <span className="grid size-9 shrink-0 place-items-center rounded-full bg-cyber-yellow font-display text-lg text-onyx">
                     {index + 1}
                   </span>
@@ -374,11 +374,11 @@ export default function OurStoryPage() {
           <Reveal delayMs={120} className="relative mx-auto max-w-md text-center lg:text-left">
             <div className="rounded-[2rem] border border-luma-white/25 bg-luma-white/10 p-8 sm:p-10">
               <p className="font-display text-5xl leading-none text-cyber-yellow">Born here.</p>
-              <p className="mt-5 text-xl font-semibold leading-relaxed text-luma-white">
+              <p className="mt-5 text-xl leading-relaxed text-luma-white">
                 Luma began in Morocco with a big idea: everyday fashion can be
                 more expressive, more playful, and much more personal.
               </p>
-              <p className="mt-5 text-lg font-semibold leading-relaxed text-luma-white/85">
+              <p className="mt-5 text-lg leading-relaxed text-luma-white/85">
                 The story starts here. The vision keeps moving.
               </p>
             </div>
@@ -393,7 +393,7 @@ export default function OurStoryPage() {
         </GhostType>
         <div className="relative mx-auto grid max-w-[1440px] items-center gap-10 px-4 py-20 sm:px-7 lg:grid-cols-[minmax(0,62fr)_minmax(0,38fr)] lg:px-12 lg:py-28">
           <Reveal className="max-w-4xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyber-yellow">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-cyber-yellow">
               The next chapter
             </p>
             <h2 className="mt-4 font-display text-[clamp(3.5rem,11vw,7.5rem)] leading-[0.84] tracking-tight">
@@ -403,20 +403,20 @@ export default function OurStoryPage() {
               <br />
               Your story.
             </h2>
-            <p className="mt-7 max-w-2xl text-xl font-semibold leading-relaxed text-luma-white">
+            <p className="mt-7 max-w-2xl text-xl leading-relaxed text-luma-white">
               Luma is for the bold, the dreamers, and everyone who refuses to
               disappear into the background.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 href="/socks"
-                className="inline-flex min-h-13 items-center justify-center rounded-full bg-cyber-yellow px-7 py-3.5 font-bold text-onyx transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                className="inline-flex min-h-13 items-center justify-center rounded-full bg-cyber-yellow px-7 py-3.5 text-onyx transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 Shop Luma&apos;s socks
               </Link>
               <Link
                 href="/editions"
-                className="inline-flex min-h-13 items-center justify-center rounded-full border-2 border-luma-white px-7 py-3.5 font-bold text-luma-white transition-colors hover:bg-luma-white hover:text-celtic-blue"
+                className="inline-flex min-h-13 items-center justify-center rounded-full border-2 border-luma-white px-7 py-3.5 text-luma-white transition-colors hover:bg-luma-white hover:text-celtic-blue"
               >
                 Explore the editions
               </Link>

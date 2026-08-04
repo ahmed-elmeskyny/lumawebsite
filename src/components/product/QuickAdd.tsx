@@ -37,11 +37,12 @@ export function QuickAdd({
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState<SizeRange | null>(null);
   const [added, setAdded] = useState(false);
-  const [isMobile, setIsMobile] = useState(
-    () =>
-      typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 767px)").matches,
-  );
+  // Resolved fresh every time the panel opens rather than tracked in state.
+  // A stored value can drift out of sync with the viewport (a missed
+  // `change` event, a rotation, a restored window), and a stale `true`
+  // here renders the `md:hidden` sheet at desktop width — an invisible
+  // panel that still locks body scroll.
+  const [isMobile, setIsMobile] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -52,13 +53,6 @@ export function QuickAdd({
     setOpen(false);
     setSize(null);
     setAdded(false);
-  }, []);
-
-  useEffect(() => {
-    const query = window.matchMedia("(max-width: 767px)");
-    const update = (event: MediaQueryListEvent) => setIsMobile(event.matches);
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
   }, []);
 
   useEffect(() => {
@@ -73,6 +67,24 @@ export function QuickAdd({
       if (event.key === "Escape") {
         close();
         triggerRef.current?.focus();
+        return;
+      }
+      // The sheet declares aria-modal, so keyboard focus must actually stay
+      // inside it. Without this, everything behind the backdrop is still
+      // tabbable and the "modal" is a lie to assistive technology.
+      if (event.key !== "Tab" || !isMobile || !panelRef.current) return;
+      const focusables = panelRef.current.querySelectorAll<HTMLElement>(
+        "a[href], button:not([disabled]), input:not([disabled])",
+      );
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (!first || !last) return;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
     const onPointerDown = (event: PointerEvent) => {
@@ -125,13 +137,18 @@ export function QuickAdd({
         onClick={(event) => {
           event.preventDefault();
           event.stopPropagation();
-          setOpen((value) => !value);
+          if (open) {
+            close();
+            return;
+          }
+          setIsMobile(window.matchMedia("(max-width: 767px)").matches);
+          setOpen(true);
         }}
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={`Quick add ${name}`}
         className={cn(
-          "pointer-events-auto absolute right-3 bottom-3 z-10 flex h-11 w-11 touch-manipulation items-center justify-center rounded-full bg-onyx text-luma-white shadow-lg transition-colors hover:bg-celtic-blue motion-reduce:transition-none",
+          "pointer-events-auto absolute right-3 bottom-3 z-10 flex h-11 w-11 cursor-pointer touch-manipulation items-center justify-center rounded-full bg-onyx text-luma-white shadow-lg transition-colors hover:bg-celtic-blue motion-reduce:transition-none",
           open && "bg-celtic-blue",
         )}
       >
@@ -245,7 +262,7 @@ function QuickAddForm({
           >
             {name}
           </p>
-          <p className="mt-1 text-sm font-bold text-celtic-blue">
+          <p className="mt-1 text-sm text-celtic-blue">
             {formatMad(priceMad)}
           </p>
         </div>
@@ -264,7 +281,7 @@ function QuickAddForm({
       </div>
 
       <fieldset className="mt-4">
-        <legend className="text-xs font-bold uppercase tracking-[0.12em] text-onyx/70">
+        <legend className="subtitle text-xs uppercase tracking-[0.12em] text-onyx">
           Choose your size
         </legend>
         <div className="mt-2 flex gap-2">
@@ -272,7 +289,7 @@ function QuickAddForm({
             <label
               key={range}
               className={cn(
-                "flex min-h-12 flex-1 cursor-pointer items-center justify-center rounded-xl border-2 px-2 py-2 text-center text-sm font-bold transition-colors focus-within:outline-2 focus-within:outline-celtic-blue focus-within:outline-offset-2",
+                "flex min-h-12 flex-1 cursor-pointer items-center justify-center rounded-xl border-2 px-2 py-2 text-center text-sm transition-colors focus-within:outline-2 focus-within:outline-celtic-blue focus-within:outline-offset-2",
                 size === range
                   ? "border-celtic-blue bg-celtic-blue text-luma-white"
                   : "border-onyx/25 text-onyx hover:border-onyx",
@@ -296,7 +313,7 @@ function QuickAddForm({
         type="button"
         disabled={!size}
         onClick={onAdd}
-        className="mt-4 min-h-12 w-full rounded-xl bg-onyx px-4 py-3 text-sm font-bold text-luma-white transition-colors hover:bg-celtic-blue disabled:cursor-not-allowed disabled:bg-onyx/25"
+        className="mt-4 min-h-12 w-full rounded-xl bg-onyx px-4 py-3 text-sm text-luma-white transition-colors hover:bg-celtic-blue disabled:cursor-not-allowed disabled:bg-onyx/25"
       >
         {size ? "Add to cart" : "Select a size"}
       </button>

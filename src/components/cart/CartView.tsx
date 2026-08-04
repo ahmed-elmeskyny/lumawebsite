@@ -30,7 +30,7 @@ export function CartView() {
       <section aria-labelledby="cart-heading">
         <div className="flex items-end justify-between gap-4 border-b-2 border-onyx/15 pb-5">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-celtic-blue">
+            <p className="subtitle text-xs uppercase tracking-[0.16em] text-celtic-blue">
               Your selection
             </p>
             <h1
@@ -39,14 +39,14 @@ export function CartView() {
             >
               Your cart.
             </h1>
-            <p className="mt-2 text-sm font-bold text-onyx/85">
+            <p className="mt-2 text-sm text-onyx/85">
               {itemCount} {itemCount === 1 ? "item" : "items"}
             </p>
           </div>
           <button
             type="button"
             onClick={clearCart}
-            className="min-h-11 rounded-full px-3 text-sm font-bold text-onyx underline decoration-2 underline-offset-4 hover:text-celtic-blue"
+            className="min-h-11 rounded-full px-3 text-sm text-onyx underline decoration-2 underline-offset-4 hover:text-celtic-blue"
           >
             Clear cart
           </button>
@@ -65,7 +65,7 @@ export function CartView() {
 
         <Link
           href="/socks"
-          className="mt-6 inline-flex min-h-11 items-center font-bold text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
+          className="mt-6 inline-flex min-h-11 items-center text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
         >
           ← Continue shopping
         </Link>
@@ -76,7 +76,7 @@ export function CartView() {
         className="sticky top-24 overflow-hidden rounded-[2rem] border-2 border-onyx bg-cyber-yellow shadow-[8px_8px_0_#383639]"
       >
         <div className="pattern-rings-dark p-6 sm:p-7">
-          <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-onyx">
+          <p className="subtitle text-xs uppercase tracking-[0.14em] text-onyx">
             Ready when you are
           </p>
           <h2
@@ -86,7 +86,7 @@ export function CartView() {
             Order summary
           </h2>
 
-          <dl className="mt-6 space-y-3 text-sm font-bold text-onyx">
+          <dl className="mt-6 space-y-3 text-sm text-onyx">
             <div className="flex justify-between gap-4">
               <dt>Subtotal</dt>
               <dd>{formatMad(subtotalMad)}</dd>
@@ -95,16 +95,17 @@ export function CartView() {
               <dt>Delivery</dt>
               <dd>{formatMad(deliveryMad)}</dd>
             </div>
-            <div className="flex justify-between gap-4 border-t-2 border-onyx/20 pt-4 text-lg font-bold">
+            <div className="flex justify-between gap-4 border-t-2 border-onyx/20 pt-4 text-lg">
               <dt>Total</dt>
               <dd>{formatMad(totalMad)}</dd>
             </div>
           </dl>
 
           <div className="mt-6 rounded-2xl bg-luma-white/85 p-4">
-            <p className="font-bold text-onyx">Pay on delivery available</p>
-            <p className="mt-1 text-sm font-semibold leading-relaxed text-onyx/85">
-              Choose your payment method when Shopify checkout is connected.
+            <p className="text-onyx">Pay on delivery</p>
+            <p className="mt-1 text-sm leading-relaxed text-onyx/85">
+              Cash on delivery is how Luma takes payment. You pay the courier
+              when your order arrives — nothing is charged upfront.
             </p>
           </div>
 
@@ -112,13 +113,13 @@ export function CartView() {
             type="button"
             disabled
             aria-describedby="checkout-note"
-            className="mt-5 inline-flex min-h-13 w-full items-center justify-center rounded-full bg-onyx px-5 py-3.5 text-base font-bold text-luma-white disabled:cursor-not-allowed disabled:opacity-55"
+            className="mt-5 inline-flex min-h-13 w-full items-center justify-center rounded-full bg-onyx px-5 py-3.5 text-base text-luma-white disabled:cursor-not-allowed disabled:opacity-55"
           >
             Checkout
           </button>
           <p
             id="checkout-note"
-            className="mt-3 text-center text-xs font-bold leading-relaxed text-onyx/85"
+            className="mt-3 text-center text-xs leading-relaxed text-onyx/85"
           >
             Checkout activates when the Shopify store is connected.
           </p>
@@ -164,7 +165,7 @@ function CartLineItem({
       </Link>
 
       <div className="min-w-0 self-center">
-        <p className="text-xs font-extrabold uppercase tracking-[0.1em] text-onyx">
+        <p className="subtitle text-xs uppercase tracking-[0.1em] text-onyx">
           {typeLabel}
         </p>
         <h2 className="mt-1 font-display text-2xl leading-tight text-onyx">
@@ -175,8 +176,8 @@ function CartLineItem({
             {line.name}
           </Link>
         </h2>
-        <p className="mt-1 text-sm font-bold text-onyx/85">{line.size}</p>
-        <p className="mt-3 font-bold text-onyx">{formatMad(line.priceMad)}</p>
+        <p className="mt-1 text-sm text-onyx/85">{line.size}</p>
+        <p className="mt-3 text-onyx">{formatMad(line.priceMad)}</p>
       </div>
 
       <div className="col-span-2 flex items-center justify-between gap-4 sm:col-span-1 sm:flex-col sm:items-end">
@@ -190,13 +191,13 @@ function CartLineItem({
               setQuantity(line.handle, line.size, line.quantity - 1)
             }
             aria-label={"Decrease " + line.name + " quantity"}
-            className="flex h-11 w-11 items-center justify-center text-xl font-bold text-onyx hover:text-celtic-blue"
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg text-xl text-onyx transition-colors hover:bg-celtic-blue/15 hover:text-celtic-blue motion-reduce:transition-none"
           >
             −
           </button>
           <output
             aria-live="polite"
-            className="w-8 text-center text-sm font-bold text-onyx"
+            className="w-8 text-center text-sm text-onyx"
           >
             {line.quantity}
           </output>
@@ -207,20 +208,20 @@ function CartLineItem({
             }
             disabled={line.quantity >= 99}
             aria-label={"Increase " + line.name + " quantity"}
-            className="flex h-11 w-11 items-center justify-center text-xl font-bold text-onyx hover:text-celtic-blue disabled:text-onyx/30"
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg text-xl text-onyx transition-colors hover:bg-celtic-blue/15 hover:text-celtic-blue disabled:cursor-not-allowed disabled:bg-transparent disabled:text-onyx/30 motion-reduce:transition-none"
           >
             +
           </button>
         </div>
 
         <div className="text-right">
-          <p className="font-bold text-onyx">
+          <p className=" text-onyx">
             {formatMad(line.priceMad * line.quantity)}
           </p>
           <button
             type="button"
             onClick={() => remove(line.handle, line.size)}
-            className="mt-1 min-h-11 text-sm font-bold text-onyx/85 underline decoration-2 underline-offset-4 hover:text-orange-red"
+            className="mt-1 min-h-11 text-sm text-onyx/85 underline decoration-2 underline-offset-4 hover:text-orange-red"
           >
             Remove
           </button>
@@ -248,19 +249,19 @@ function EmptyCart() {
           unoptimized
           className="mx-auto h-28 w-auto"
         />
-        <p className="mt-6 text-xs font-bold uppercase tracking-[0.16em] text-celtic-blue">
+        <p className="subtitle mt-6 text-xs uppercase tracking-[0.16em] text-celtic-blue">
           Nothing here yet
         </p>
         <h1 className="mt-3 font-display text-[clamp(3rem,10vw,6rem)] leading-[0.9] text-onyx">
           Your cart is waiting.
         </h1>
-        <p className="mx-auto mt-5 max-w-lg text-base font-semibold leading-relaxed text-onyx/85">
+        <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-onyx/85">
           Pick a pair, choose your size, and bring some colour to your next
           step.
         </p>
         <Link
           href="/socks"
-          className="mt-8 inline-flex min-h-13 items-center justify-center rounded-full bg-celtic-blue px-7 py-3.5 text-base font-bold text-luma-white transition-colors hover:bg-onyx"
+          className="mt-8 inline-flex min-h-13 items-center justify-center rounded-full bg-celtic-blue px-7 py-3.5 text-base text-luma-white transition-colors hover:bg-onyx"
         >
           Shop the drop
         </Link>

@@ -6,10 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/components/cart/CartProvider";
 
-/**
- * Primary navigation per docs/CONTENT.md. Destinations are future routes
- * planned in docs/SITE_BRIEF.md; they are not implemented in Checkpoint 1.
- */
+/** Primary navigation. Every destination resolves to a built route. */
 interface NavLink {
   href: string;
   label: string;
@@ -40,12 +37,9 @@ const NAV_LINKS: readonly NavLink[] = [
  * pill with the same ring-pattern texture used on dark sections elsewhere
  * on the site, and every control shares that one interaction language.
  *
- * Nav text is set in the display face (Baileywick), not the body face
- * (Adelphi). Adelphi ships only a Thin (100) static weight, and
- * `font-synthesis-weight: none` in globals.css deliberately stops the
- * browser from faking a bold version of it — that rule exists to avoid
- * ugly faux-bold elsewhere, so a plain `font-bold` on Adelphi can never
- * look heavier here. Baileywick is the site's genuinely bold voice.
+ * Nav text is set in the display face (Baileywick), not the body face —
+ * Adelphi is a single static weight with no bold available (see
+ * lib/fonts.ts), so Baileywick is the site's only genuinely bold voice.
  */
 export function Header() {
   const { itemCount } = useCart();
@@ -300,13 +294,19 @@ export function Header() {
             <nav aria-label="Primary" className="px-2 pb-6">
               <ul className="flex flex-col">
                 {NAV_LINKS.map((link) => {
-                  const isCurrent = pathname === link.href;
+                  // Matches the desktop rule: a section stays lit while you
+                  // are anywhere beneath it.
+                  const isCurrent =
+                    pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(`${link.href}/`));
                   return (
                     <li key={link.href}>
                       <Link
                         href={link.href}
                         onClick={closeMenu}
-                        aria-current={isCurrent ? "page" : undefined}
+                        aria-current={
+                          pathname === link.href ? "page" : undefined
+                        }
                         className={`block rounded-2xl px-3 py-3 font-display text-2xl transition-colors ${
                           isCurrent
                             ? "bg-celtic-blue text-luma-white"

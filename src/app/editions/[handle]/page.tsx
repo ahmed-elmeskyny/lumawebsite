@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { storeConfig } from "@/config/store";
 import { editionStories, getEditionStory } from "@/data/editionStories";
 import { getProductByHandle } from "@/lib/catalogue";
 import { formatMad } from "@/lib/money";
@@ -31,7 +32,7 @@ export async function generateMetadata({
     return {};
   }
   return {
-    title: `${product.name} | Luma Socks`,
+    title: product.name,
     description: story.heroBody,
   };
 }
@@ -74,7 +75,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
         <div className="relative mx-auto grid min-h-[78svh] max-w-[1440px] items-center gap-8 px-4 py-14 sm:px-7 lg:grid-cols-[minmax(0,43fr)_minmax(0,57fr)] lg:gap-12 lg:px-12 lg:py-20">
           <div className="max-w-xl">
             <p
-              className={`text-sm font-bold uppercase tracking-[0.16em] ${
+              className={`subtitle text-sm uppercase tracking-[0.16em] ${
                 story.heroDark ? "text-cyber-yellow" : "text-celtic-blue"
               }`}
             >
@@ -93,7 +94,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href="#order"
-                className="inline-flex min-h-13 items-center justify-center rounded-full bg-cyber-yellow px-7 py-3.5 text-base font-bold text-onyx transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+                className="inline-flex min-h-13 items-center justify-center rounded-full bg-cyber-yellow px-7 py-3.5 text-base text-onyx transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
               >
                 Order the box
               </a>
@@ -167,7 +168,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
             />
 
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.14em] text-onyx/60">
+              <p className="subtitle text-sm uppercase tracking-[0.14em] text-onyx">
                 Fixed three-pair edition
               </p>
               <h3 className="mt-2 font-display text-[clamp(2rem,6vw,3rem)] leading-none text-onyx">
@@ -201,7 +202,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
                               className="h-auto w-full object-contain"
                             />
                           </div>
-                          <p className="mt-2 text-sm font-bold text-onyx">
+                          <p className="mt-2 text-sm text-onyx">
                             {component.name}
                           </p>
                         </li>
@@ -211,15 +212,16 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
                 )}
                 <Disclosure summary="Delivery and payment">
                   <p className="text-sm">
-                    Delivery is 35 MAD. Pay on delivery is available, so you
-                    can pay when your order arrives.
+                    Delivery is {formatMad(storeConfig.delivery.feeMad)}.
+                    Payment is cash on delivery, so you pay when your order
+                    arrives.
                   </p>
                 </Disclosure>
               </div>
 
               <Link
                 href="/size-guide"
-                className="mt-5 inline-block rounded-sm text-sm font-bold text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
+                className="mt-5 inline-block rounded-sm text-sm text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
               >
                 Find your size
               </Link>
@@ -229,7 +231,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
           <div className="mt-14 text-center">
             <Link
               href="/editions"
-              className="inline-flex min-h-12 items-center font-bold text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
+              className="inline-flex min-h-12 items-center text-celtic-blue underline decoration-2 underline-offset-4 hover:text-onyx"
             >
               ← See both editions
             </Link>

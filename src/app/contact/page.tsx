@@ -3,7 +3,7 @@ import Image from "next/image";
 import { storeConfig } from "@/config/store";
 
 export const metadata: Metadata = {
-  title: "Contact | Luma Socks",
+  title: "Contact",
   description:
     "Get in touch with the Luma team about orders, sizing, or anything else.",
 };
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-luma-green">
+            <p className="subtitle text-sm uppercase tracking-[0.16em] text-luma-green">
               Say hello
             </p>
             <h1 className="mt-3 font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-[0.95] tracking-tight text-onyx">
@@ -48,6 +48,8 @@ export default function ContactPage() {
                 <ContactItem label="WhatsApp">
                   <a
                     href={`https://wa.me/${contact.whatsapp.replace(/\D/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-celtic-blue underline underline-offset-4 hover:text-onyx"
                   >
                     {contact.whatsapp}
@@ -58,6 +60,8 @@ export default function ContactPage() {
               <ContactItem label="Instagram">
                 <a
                   href={social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-celtic-blue underline underline-offset-4 hover:text-onyx"
                 >
                   {social.handle}
@@ -91,7 +95,7 @@ function ContactItem({
 }) {
   return (
     <div className="rounded-2xl bg-luma-white p-5">
-      <dt className="text-xs font-bold uppercase tracking-[0.14em] text-onyx/55">
+      <dt className="subtitle text-xs uppercase tracking-[0.14em] text-onyx">
         {label}
       </dt>
       <dd className="mt-1.5 text-onyx">{children}</dd>

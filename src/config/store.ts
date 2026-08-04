@@ -11,6 +11,16 @@
 export const storeConfig = {
   brandName: "Luma Socks",
 
+  // TODO: confirm the production domain before launch. Absolute URLs in
+  // metadata, the sitemap, and robots.txt are all built from this, so a
+  // wrong value silently points share previews and crawlers elsewhere.
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lumasocks.ma",
+
+  pricing: {
+    singlePairMad: 80,
+    editionMad: 235,
+  },
+
   contact: {
     // TODO: confirm the real support inbox
     email: "hello@lumasocks.ma",

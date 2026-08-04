@@ -14,7 +14,7 @@ export function PolicyPage({
 }) {
   return (
     <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
-      <p className="text-sm font-bold uppercase tracking-[0.16em] text-celtic-blue">
+      <p className="subtitle text-sm uppercase tracking-[0.16em] text-celtic-blue">
         {eyebrow}
       </p>
       <h1 className="mt-3 max-w-4xl font-display text-[clamp(2.5rem,8vw,4.5rem)] leading-[0.95] tracking-tight text-onyx">

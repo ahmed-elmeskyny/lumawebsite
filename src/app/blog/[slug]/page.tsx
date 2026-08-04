@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
   const post = getBlogPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} | The Luma Journal`,
+    title: post.title,
     description: post.excerpt,
   };
 }
@@ -34,7 +34,11 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
   return (
     <article className="bg-eggshell">
-      <header className={`${post.field} relative overflow-hidden`}>
+      {/* `on-dark` switches the focus ring to yellow (globals.css). Without
+          it the celtic-blue ring is invisible on a celtic-blue hero. */}
+      <header
+        className={`${post.field} ${post.darkField ? "on-dark" : ""} relative overflow-hidden`}
+      >
         <div
           aria-hidden="true"
           className="absolute -right-24 -top-20 size-[28rem] rounded-full bg-luma-white/12"
@@ -43,14 +47,14 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           <Reveal className="relative z-10 max-w-3xl">
             <Link
               href="/blog"
-              className={`inline-flex items-center gap-2 rounded-sm text-sm font-bold underline decoration-2 underline-offset-4 ${
+              className={`inline-flex items-center gap-2 rounded-sm text-sm underline decoration-2 underline-offset-4 ${
                 post.darkField ? "text-cyber-yellow" : "text-celtic-blue"
               }`}
             >
               <span aria-hidden="true">←</span> The Luma Journal
             </Link>
             <p
-              className={`mt-8 text-sm font-bold uppercase tracking-[0.18em] ${
+              className={`subtitle mt-8 text-sm uppercase tracking-[0.18em] ${
                 post.darkField ? "text-cyber-yellow" : "text-celtic-blue"
               }`}
             >
@@ -62,7 +66,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               {post.title}
             </h1>
             <p
-              className={`mt-7 max-w-2xl text-xl font-semibold leading-relaxed sm:text-2xl ${
+              className={`mt-7 max-w-2xl text-xl leading-relaxed sm:text-2xl ${
                 post.darkField ? "text-luma-white" : "text-onyx"
               }`}
             >
@@ -107,7 +111,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               >
                 {section.heading}
               </h2>
-              <div className="mt-7 space-y-5 text-lg font-semibold leading-[1.75] text-onyx sm:text-xl">
+              <div className="mt-7 space-y-5 text-lg leading-[1.75] text-onyx sm:text-xl">
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -125,7 +129,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
       <section aria-labelledby="related-reading" className="bg-luma-white">
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-7 lg:px-12 lg:py-24">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-luma-green">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-luma-green">
               Keep exploring
             </p>
             <h2

@@ -5,13 +5,12 @@ import { GhostType } from "@/components/ui/GhostType";
 /**
  * Homepage hero.
  *
- * Composition: the brand animation sits back like a taped-up poster, a
- * yellow disc acts as a spotlight, and the real product — Luma socks
- * actually worn — stands in front of both with the feet meeting the
- * bottom edge of the section.
+ * Composition: the brand animation sits at an angle like a taped-up
+ * poster, a yellow disc behind it acts as a spotlight, and sticker
+ * artwork breaks the poster's edges to keep the frame from feeling flat.
  *
- * The edition boxes were deliberately removed from the hero (user
- * direction, 28 July 2026); they lead the Featured Editions section
+ * Product imagery is deliberately absent here (user direction, 28 July
+ * 2026) — the edition boxes and sock grid lead the two sections
  * immediately below instead.
  */
 export function Hero() {
@@ -26,7 +25,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1440px] items-center gap-8 px-4 pb-12 sm:px-7 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:gap-10 lg:px-12 lg:pb-20">
         <div className="max-w-xl pt-10 lg:pt-16">
-          <p className="motion-rise text-sm font-semibold uppercase tracking-[0.16em] text-cyber-yellow">
+          <p className="subtitle motion-rise text-sm uppercase tracking-[0.16em] text-cyber-yellow">
             Socks for every side of you.
           </p>
           <h1

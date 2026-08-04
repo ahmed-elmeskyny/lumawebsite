@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Allow physical devices on the local Wi-Fi network to load and hydrate
   // the development app through this computer's LAN address.
-  allowedDevOrigins: ["192.168.11.140"],
+  allowedDevOrigins: ["192.168.11.140", "10.120.190.170"],
 
   async redirects() {
     return [

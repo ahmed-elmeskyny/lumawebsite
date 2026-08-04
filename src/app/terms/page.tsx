@@ -3,7 +3,7 @@ import { PolicyPage, PolicySection } from "@/components/ui/PolicyPage";
 import { storeConfig } from "@/config/store";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Luma Socks",
+  title: "Terms of Service",
   description: "The terms that apply when you shop with Luma Socks.",
 };
 

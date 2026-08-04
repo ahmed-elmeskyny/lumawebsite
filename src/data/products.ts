@@ -361,8 +361,9 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     type: "standalone",
     priceMad: 80,
     shortDescription: "The mascot, mid-trick, all over your ankles.",
-    // Approved product copy pending: promoted to standalone sale
-    // 28 July 2026; docs/CONTENT.md has no description or mood tags yet.
+    description:
+      "Kickflip Luma catches the mascot mid-air and never lets him land. Boards, flips, and a green blur running the length of the cotton — the pair for days that move faster than you planned.",
+    moodTags: ["Playful", "Energetic", "Character"],
     inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
@@ -396,6 +397,9 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     type: "standalone",
     priceMad: 80,
     shortDescription: "Scribbles, symbols, and a friendly face.",
+    description:
+      "Luma Doodle is everything the mascot leaves behind: a scribble, a tick, a heart, a question mark. Look down at the toe and he is still watching you. Wear it when your day needs a margin to draw in.",
+    moodTags: ["Creative", "Playful", "Hand-drawn"],
     inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
@@ -429,6 +433,9 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     type: "standalone",
     priceMad: 80,
     shortDescription: "A quiet grid of plus signs in cool teal.",
+    description:
+      "Plus Pulse is the calm one. A steady teal grid, nothing shouting, built for long days spent upright. The pair you reach for when the rest of the drawer is trying too hard.",
+    moodTags: ["Calm", "Graphic", "Everyday"],
     inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(
@@ -462,6 +469,9 @@ export const catalogueProducts: readonly CatalogueProduct[] = [
     type: "standalone",
     priceMad: 80,
     shortDescription: "Medical-inspired icons on deep purple.",
+    description:
+      "Vital Signs scatters the whole toolkit — stethoscopes, syringes, thermometers, tablets — across deep purple. A small nod to the people who spend all day checking on everyone else.",
+    moodTags: ["Clever", "Unexpected", "Detailed"],
     inStock: true,
     sizeRanges: SIZE_RANGES,
     image: packshot(

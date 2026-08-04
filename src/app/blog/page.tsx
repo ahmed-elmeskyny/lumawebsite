@@ -7,7 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { blogPosts } from "@/data/blogPosts";
 
 export const metadata: Metadata = {
-  title: "The Luma Journal | Sock Craft, Materials, Style and Stories",
+  title: "The Luma Journal",
   description:
     "Explore how socks are made, material guides, practical advice, sock design and culture, industry ideas, and stories from Luma.",
 };
@@ -37,13 +37,13 @@ export default function BlogPage() {
         />
         <div className="relative mx-auto grid min-h-[52svh] max-w-[1440px] items-center gap-6 px-4 py-12 sm:px-7 sm:py-14 lg:grid-cols-[minmax(0,64fr)_minmax(0,36fr)] lg:px-12 lg:py-16">
           <Reveal className="relative z-10 max-w-4xl">
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-cyber-yellow">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-cyber-yellow">
               The Luma Journal
             </p>
             <h1 className="mt-3 font-display text-[clamp(3.5rem,9vw,6.75rem)] leading-[0.86] tracking-tight">
               Stories worth wearing.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg font-semibold leading-relaxed text-luma-white sm:text-xl">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-luma-white sm:text-xl">
               How socks are made, what materials change, how to choose a pair,
               what is happening across the sock world—and what Luma is building.
             </p>
@@ -64,13 +64,13 @@ export default function BlogPage() {
 
       <section aria-label="Journal topics" className="bg-onyx text-luma-white">
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center gap-3 px-4 py-5 sm:px-7 lg:px-12">
-          <span className="mr-2 text-xs font-bold uppercase tracking-[0.16em] text-cyber-yellow">
+          <span className="subtitle mr-2 text-xs uppercase tracking-[0.16em] text-cyber-yellow">
             Explore
           </span>
           {JOURNAL_TOPICS.map((topic) => (
             <span
               key={topic}
-              className="rounded-full border border-luma-white/25 px-4 py-2 text-sm font-semibold text-luma-white"
+              className="rounded-full border border-luma-white/25 px-4 py-2 text-sm text-luma-white"
             >
               {topic}
             </span>
@@ -80,7 +80,7 @@ export default function BlogPage() {
 
       <section aria-labelledby="featured-story" className="mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
         <Reveal>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-luma-green">
+          <p className="subtitle text-sm uppercase tracking-[0.18em] text-luma-green">
             Start here
           </p>
           <article className="mt-5 overflow-hidden rounded-[2.25rem] bg-luma-white shadow-[0_20px_55px_rgba(56,54,57,0.12)]">
@@ -100,12 +100,12 @@ export default function BlogPage() {
                     featured.coverFit === "contain" ? "object-contain p-8 sm:p-10" : "object-cover"
                   }`}
                 />
-                <span className="absolute left-5 top-5 rounded-full bg-cyber-yellow px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] text-onyx">
+                <span className="subtitle absolute left-5 top-5 rounded-full bg-cyber-yellow px-4 py-2 text-xs uppercase tracking-[0.14em] text-onyx">
                   Featured story
                 </span>
               </div>
               <div className="flex flex-col justify-center p-7 sm:p-9 lg:p-10">
-                <p className="text-sm font-bold uppercase tracking-[0.16em] text-celtic-blue">
+                <p className="subtitle text-sm uppercase tracking-[0.16em] text-celtic-blue">
                   {featured.category}
                 </p>
                 <h2
@@ -114,10 +114,10 @@ export default function BlogPage() {
                 >
                   {featured.title}
                 </h2>
-                <p className="mt-5 text-base font-semibold leading-relaxed text-onyx sm:text-lg">
+                <p className="mt-5 text-base leading-relaxed text-onyx sm:text-lg">
                   {featured.excerpt}
                 </p>
-                <span className="mt-6 inline-flex items-center gap-2 font-bold text-celtic-blue">
+                <span className="mt-6 inline-flex items-center gap-2 text-celtic-blue">
                   Read the story <span aria-hidden="true">→</span>
                 </span>
               </div>
@@ -130,7 +130,7 @@ export default function BlogPage() {
         <div className="mx-auto max-w-[1440px] px-4 py-16 sm:px-7 lg:px-12 lg:py-24">
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-orange-red">
+              <p className="subtitle text-sm uppercase tracking-[0.18em] text-orange-red">
                 Keep reading
               </p>
               <h2
@@ -140,7 +140,7 @@ export default function BlogPage() {
                 The sock world, decoded.
               </h2>
             </div>
-            <p className="max-w-md text-lg font-semibold leading-relaxed text-onyx">
+            <p className="max-w-md text-lg leading-relaxed text-onyx">
               Craft, fibres, fit, style, culture, and Luma stories—all in one
               colorful journal.
             </p>
@@ -149,7 +149,9 @@ export default function BlogPage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {morePosts.map((post, index) => (
               <Reveal key={post.slug} delayMs={(index % 2) * 90}>
-                <BlogCard post={post} />
+                {/* The first row is close enough to the fold to be worth
+                    preloading; the rest stay lazy. */}
+                <BlogCard post={post} priority={index < 3} />
               </Reveal>
             ))}
           </div>
@@ -159,7 +161,7 @@ export default function BlogPage() {
       <section className="pattern-rings-dark bg-cyber-yellow">
         <div className="mx-auto grid max-w-[1440px] items-center gap-8 px-4 py-16 sm:px-7 lg:grid-cols-[minmax(0,68fr)_minmax(0,32fr)] lg:px-12 lg:py-20">
           <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-celtic-blue">
+            <p className="subtitle text-sm uppercase tracking-[0.18em] text-celtic-blue">
               Enough reading for now?
             </p>
             <h2 className="mt-3 font-display text-[clamp(3rem,8vw,5.75rem)] leading-[0.88] tracking-tight text-onyx">
@@ -169,13 +171,13 @@ export default function BlogPage() {
           <Reveal delayMs={100} className="flex flex-wrap gap-4 lg:justify-end">
             <Link
               href="/socks"
-              className="inline-flex min-h-13 items-center justify-center rounded-full bg-onyx px-7 py-3.5 font-bold text-luma-white transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              className="inline-flex min-h-13 items-center justify-center rounded-full bg-onyx px-7 py-3.5 text-luma-white transition-transform hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               Shop Luma&apos;s socks
             </Link>
             <Link
               href="/editions"
-              className="inline-flex min-h-13 items-center justify-center rounded-full border-2 border-onyx px-7 py-3.5 font-bold text-onyx transition-colors hover:bg-onyx hover:text-luma-white"
+              className="inline-flex min-h-13 items-center justify-center rounded-full border-2 border-onyx px-7 py-3.5 text-onyx transition-colors hover:bg-onyx hover:text-luma-white"
             >
               Explore editions
             </Link>

@@ -3,28 +3,33 @@ import Link from "next/link";
 import { GhostType } from "@/components/ui/GhostType";
 import { NewsletterForm } from "@/components/layout/NewsletterForm";
 import { storeConfig } from "@/config/store";
+import { formatMad } from "@/lib/money";
+import { SIZE_RANGES } from "@/types/product";
 
 /**
  * Footer: a yellow closing brand band above a dark link footer.
  *
- * Structure follows the supplied design direction. Several elements of
- * that mockup are intentionally NOT built because approved sources
- * prohibit them — see the checkpoint report. In particular there is no
- * newsletter form (no provider, consent copy, or privacy link yet, and
- * the mockup's "10% off" is an unapproved discount), no sustainability
- * or packaging claims, no order tracking or returns links, and no social
- * links until the destinations are verified.
+ * Carries the newsletter signup (posts to /api/newsletter) and the two
+ * social destinations from config/store.ts. Deliberately absent:
+ * sustainability, packaging, or material claims, and any delivery-time or
+ * returns promise — those are real-world commitments that belong in
+ * config/store.ts once confirmed, not in decoration.
  *
- * Every link below resolves to a real, built route.
+ * Every link below resolves to a real, built route. It covers every route on
+ * the site, so the footer is a complete map rather
+ * than a selection. Editions are listed individually because each one is
+ * its own landing page.
  */
 const LINK_GROUPS = [
   {
     heading: "Shop",
     links: [
+      { href: "/", label: "Home" },
       { href: "/socks", label: "Luma's socks" },
       { href: "/editions", label: "Editions" },
       { href: "/editions/color-your-steps", label: "Color Your Steps" },
       { href: "/editions/healthy-shifts", label: "Healthy Shifts" },
+      { href: "/cart", label: "Your cart" },
     ],
   },
   {
@@ -40,18 +45,27 @@ const LINK_GROUPS = [
     heading: "Company",
     links: [
       { href: "/our-story", label: "Our story" },
-      { href: "/blog", label: "The Luma Journal" },
+      { href: "/blog", label: "Blog — The Luma Journal" },
       { href: "/privacy", label: "Privacy policy" },
       { href: "/terms", label: "Terms of service" },
     ],
   },
 ] as const;
 
-/** Approved operational facts only — no delivery times or promises. */
+const SOCIAL_LINKS = [
+  {
+    href: storeConfig.social.instagram,
+    label: "Instagram",
+    Icon: InstagramIcon,
+  },
+  { href: storeConfig.social.tiktok, label: "TikTok", Icon: TikTokIcon },
+] as const;
+
+/** Operational facts only — values come from config/store.ts. */
 const GOOD_TO_KNOW = [
-  { label: "Sizes", value: "EU 36–40 · EU 41–46" },
-  { label: "Delivery", value: "35 MAD" },
-  { label: "Payment", value: "Pay on delivery available" },
+  { label: "Sizes", value: SIZE_RANGES.join(" · ") },
+  { label: "Delivery", value: formatMad(storeConfig.delivery.feeMad) },
+  { label: "Payment", value: "Pay on delivery" },
 ] as const;
 
 export function Footer() {
@@ -114,18 +128,16 @@ export function Footer() {
               for colour, character, and self-expression.
             </p>
             <ul className="mt-2 flex flex-wrap gap-2">
-              {[
-                { href: storeConfig.social.instagram, label: "Instagram" },
-                { href: storeConfig.social.tiktok, label: "TikTok" },
-              ].map((item) => (
-                <li key={item.label}>
+              {SOCIAL_LINKS.map(({ href, label, Icon }) => (
+                <li key={label}>
                   <a
-                    href={item.href}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-9 items-center rounded-full border border-luma-white/30 px-4 text-sm font-semibold text-luma-white transition-colors hover:border-cyber-yellow hover:text-cyber-yellow"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-luma-white/30 pl-3 pr-4 text-sm text-luma-white transition-colors hover:border-cyber-yellow hover:text-cyber-yellow"
                   >
-                    {item.label}
+                    <Icon />
+                    {label}
                   </a>
                 </li>
               ))}
@@ -134,7 +146,7 @@ export function Footer() {
 
           {LINK_GROUPS.map((group) => (
             <nav key={group.heading} aria-label={group.heading}>
-              <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-cyber-yellow">
+              <h2 className="subtitle text-sm uppercase tracking-[0.16em] text-cyber-yellow">
                 {group.heading}
               </h2>
               <ul className="mt-5 flex flex-col gap-3">
@@ -153,13 +165,13 @@ export function Footer() {
           ))}
 
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-[0.16em] text-cyber-yellow">
+            <h2 className="subtitle text-sm uppercase tracking-[0.16em] text-cyber-yellow">
               Good to know
             </h2>
             <dl className="mt-5 flex flex-col gap-3">
               {GOOD_TO_KNOW.map((item) => (
                 <div key={item.label}>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-luma-white/55">
+                  <dt className="subtitle text-xs uppercase tracking-[0.12em] text-luma-white">
                     {item.label}
                   </dt>
                   <dd className="text-luma-white/90">{item.value}</dd>
@@ -177,5 +189,52 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/* Recognisable social-platform glyphs. `currentColor` lets them inherit the
+   link's hover state alongside the label. */
+function InstagramIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        stroke="currentColor"
+        strokeWidth="1.9"
+      />
+      <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.9" />
+      <circle cx="17.4" cy="6.6" r="1.25" fill="currentColor" />
+    </svg>
+  );
+}
+
+function TikTokIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <path
+        d="M20 8.6a6.2 6.2 0 0 1-4.3-1.72V15a5.6 5.6 0 1 1-5.6-5.6c.3 0 .58.02.86.07v2.9a2.75 2.75 0 1 0 1.94 2.63V2.5h2.8A4.5 4.5 0 0 0 20 6.6v2Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }

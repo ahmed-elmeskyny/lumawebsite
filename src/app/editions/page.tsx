@@ -8,7 +8,7 @@ import { GhostType } from "@/components/ui/GhostType";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Editions | Luma Socks",
+  title: "Editions",
   description:
     "Each Luma edition is a story in three pairs. Discover Color Your Steps and Healthy Shifts.",
 };
@@ -24,7 +24,7 @@ export default function EditionsPage() {
           EDITIONS
         </GhostType>
         <div className="on-dark relative mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
-          <p className="text-sm font-bold uppercase tracking-[0.16em] text-cyber-yellow">
+          <p className="subtitle text-sm uppercase tracking-[0.16em] text-cyber-yellow">
             The box collection
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.75rem,9vw,5rem)] leading-[0.92] tracking-tight text-luma-white">
@@ -68,7 +68,7 @@ export default function EditionsPage() {
 
                   <div className={flip ? "lg:order-1" : ""}>
                     <p
-                      className={`text-sm font-bold uppercase tracking-[0.16em] ${
+                      className={`subtitle text-sm uppercase tracking-[0.16em] ${
                         story?.heroDark ? "text-cyber-yellow" : "text-celtic-blue"
                       }`}
                     >
@@ -112,7 +112,7 @@ export default function EditionsPage() {
                     )}
 
                     <div className="mt-7 flex flex-wrap items-center gap-4">
-                      <span className="inline-flex min-h-12 items-center rounded-full bg-cyber-yellow px-6 font-bold text-onyx">
+                      <span className="inline-flex min-h-12 items-center rounded-full bg-cyber-yellow px-6 text-onyx">
                         Read the story
                       </span>
                       <span

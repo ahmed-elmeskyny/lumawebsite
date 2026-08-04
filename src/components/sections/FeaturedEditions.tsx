@@ -20,7 +20,7 @@ export function FeaturedEditions() {
       <div className="relative mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-celtic-blue">
+            <p className="subtitle text-sm uppercase tracking-[0.16em] text-celtic-blue">
               The box collection
             </p>
             <h2

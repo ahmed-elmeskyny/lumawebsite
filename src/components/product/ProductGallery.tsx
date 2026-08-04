@@ -6,15 +6,21 @@ import { cn } from "@/lib/cn";
 import type { ProductImage } from "@/types/product";
 
 /**
- * Product gallery with accessible thumbnail switching. With a single
- * image (current standalone products) it renders the image alone.
+ * Product gallery with accessible thumbnail switching. Falls back to a
+ * lone image when a product has only one view.
+ *
+ * `priority` is opt-in: product pages mount this twice (one mobile, one
+ * desktop, each hidden at the other breakpoint), and preloading both
+ * would put two competing LCP candidates on every page load.
  */
 export function ProductGallery({
   images,
   field,
+  priority = false,
 }: {
   images: readonly ProductImage[];
   field: string;
+  priority?: boolean;
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = images[activeIndex] ?? images[0];
@@ -32,7 +38,7 @@ export function ProductGallery({
           alt={active.alt}
           width={active.width}
           height={active.height}
-          priority
+          priority={priority}
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="h-auto w-full object-contain"
         />

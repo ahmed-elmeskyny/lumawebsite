@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { storeConfig } from "@/config/store";
 import { getAllProducts, getProductByHandle } from "@/lib/catalogue";
 import { formatMad } from "@/lib/money";
 import { ProductGallery } from "@/components/product/ProductGallery";
@@ -44,7 +45,7 @@ export async function generateMetadata({
         .replace(/, ([^,]*)$/, ", and $1")}.`
     : `Shop ${product.name} by Luma in EU 36–40 or EU 41–46. Cash on delivery is available in Morocco.`;
   return {
-    title: `${product.name} | Luma Socks`,
+    title: product.name,
     description,
   };
 }
@@ -62,10 +63,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-7 lg:px-12 lg:py-16">
-      <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
-        {/* Mobile order: type/moods → name → gallery → purchase info */}
-        <div className="lg:order-2">
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-onyx/60">
+      {/* One gallery, placed by grid rather than duplicated per breakpoint.
+          Mobile reads name → gallery → purchase info in DOM order; desktop
+          pulls the gallery into a sticky left column spanning both rows. */}
+      <div className="grid gap-x-14 gap-y-5 lg:grid-cols-2 lg:gap-y-8">
+        <div className="lg:col-start-2 lg:row-start-1">
+          <p className="subtitle text-sm uppercase tracking-[0.12em] text-onyx">
             {isEdition ? "Fixed three-pair edition" : "Single pair"}
             {product.moodTags && (
               <span className="normal-case tracking-normal text-onyx/60">
@@ -77,10 +80,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <h1 className="mt-2 font-display text-[clamp(2.5rem,8vw,4rem)] leading-[0.95] tracking-tight text-onyx">
             {product.name}
           </h1>
-          <div className="mt-5 lg:hidden">
-            <ProductGallery images={product.gallery} field={field} />
+        </div>
+
+        <div className="lg:col-start-1 lg:row-span-2 lg:row-start-1">
+          <div className="lg:sticky lg:top-24">
+            <ProductGallery images={product.gallery} field={field} priority />
           </div>
-          <p className="mt-5 text-2xl font-semibold text-onyx">
+        </div>
+
+        <div className="lg:col-start-2 lg:row-start-2">
+          <p className="text-2xl text-onyx">
             {formatMad(product.priceMad)}
           </p>
           {product.description && (
@@ -100,7 +109,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </p>
           <Link
             href="/size-guide"
-            className="mt-2 inline-block rounded-sm text-sm font-medium text-celtic-blue underline underline-offset-4 hover:text-onyx"
+            className="mt-2 inline-block rounded-sm text-sm text-celtic-blue underline underline-offset-4 hover:text-onyx"
           >
             Size guide
           </Link>
@@ -125,7 +134,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                           className="h-auto w-full object-contain"
                         />
                       </div>
-                      <p className="mt-2 text-sm font-medium text-onyx">
+                      <p className="mt-2 text-sm text-onyx">
                         {component.name}
                       </p>
                     </li>
@@ -135,16 +144,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
             )}
             <Disclosure summary="Delivery and payment">
               <p className="text-sm">
-                Delivery is 35 MAD. Payment is cash on delivery, so you pay
-                when your order arrives.
+                Delivery is {formatMad(storeConfig.delivery.feeMad)}. Payment
+                is cash on delivery, so you pay when your order arrives.
               </p>
             </Disclosure>
-          </div>
-        </div>
-
-        <div className="hidden lg:order-1 lg:block">
-          <div className="lg:sticky lg:top-24">
-            <ProductGallery images={product.gallery} field={field} />
           </div>
         </div>
       </div>

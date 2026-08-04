@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { storeConfig } from "@/config/store";
 import { bodyFont, displayFont } from "@/lib/fonts";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
@@ -6,12 +7,42 @@ import { Footer } from "@/components/layout/Footer";
 import { CartProvider } from "@/components/cart/CartProvider";
 import "./globals.css";
 
+const SITE_DESCRIPTION =
+  "Shop colorful socks and fixed three-pair editions from Luma. Choose EU 36–40 or 41–46 and pay cash on delivery in Morocco.";
+
 export const metadata: Metadata = {
-  title: "Luma Socks | Wear Who You Are",
-  description:
-    "Shop colorful socks and fixed three-pair editions from Luma. Choose EU 36–40 or 41–46 and pay cash on delivery in Morocco.",
+  // Makes every page's relative metadata resolve to absolute share URLs.
+  metadataBase: new URL(storeConfig.siteUrl),
+  title: {
+    default: "Luma Socks | Wear Who You Are",
+    template: "%s | Luma Socks",
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: storeConfig.brandName,
   icons: {
     icon: "/assets/brand/logo-eyes-blue.svg",
+  },
+  openGraph: {
+    type: "website",
+    siteName: storeConfig.brandName,
+    title: "Luma Socks | Wear Who You Are",
+    description: SITE_DESCRIPTION,
+    locale: "en",
+    url: storeConfig.siteUrl,
+    images: [
+      {
+        url: "/assets/brand/luma-delivering-happiness-poster.jpg",
+        width: 1280,
+        height: 720,
+        alt: "Luma Socks",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luma Socks | Wear Who You Are",
+    description: SITE_DESCRIPTION,
+    images: ["/assets/brand/luma-delivering-happiness-poster.jpg"],
   },
 };
 

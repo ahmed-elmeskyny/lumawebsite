@@ -3,7 +3,7 @@ import { PolicyPage, PolicySection } from "@/components/ui/PolicyPage";
 import { storeConfig } from "@/config/store";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Luma Socks",
+  title: "Privacy Policy",
   description:
     "How Luma collects, uses, and protects your personal information.",
 };

@@ -47,7 +47,7 @@ export function NewsletterForm() {
     <form onSubmit={onSubmit} noValidate className="w-full max-w-xl">
       <label
         htmlFor={inputId}
-        className="block text-sm font-bold uppercase tracking-[0.14em] text-onyx"
+        className="subtitle block text-sm uppercase tracking-[0.14em] text-onyx"
       >
         Join the sock party
       </label>
@@ -75,7 +75,7 @@ export function NewsletterForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="min-h-13 shrink-0 rounded-full bg-onyx px-7 text-base font-semibold text-luma-white transition-colors hover:bg-celtic-blue disabled:opacity-60"
+          className="min-h-13 shrink-0 rounded-full bg-onyx px-7 text-base text-luma-white transition-colors hover:bg-celtic-blue disabled:opacity-60"
         >
           {status === "loading" ? "Joining…" : "Subscribe"}
         </button>
