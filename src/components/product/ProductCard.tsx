@@ -35,7 +35,7 @@ export function ProductCard({ item }: { item: CardItem }) {
 
   return (
     <article
-      className={`${field} group relative flex flex-col overflow-hidden rounded-[1.75rem] transition-transform duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0`}
+      className={`${field} group relative isolate flex flex-col overflow-hidden rounded-[1.75rem] transition-transform duration-300 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0`}
     >
       <div className="relative aspect-4/5 overflow-hidden">
         <div
@@ -47,7 +47,7 @@ export function ProductCard({ item }: { item: CardItem }) {
           alt={item.image.alt}
           fill
           sizes="(min-width: 1024px) 24vw, 46vw"
-          className={`object-contain p-4 pb-6 drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:p-5 sm:pb-7 ${
+          className={`pointer-events-none object-contain p-4 pb-6 drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] transition-all duration-300 group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100 sm:p-5 sm:pb-7 ${
             soldOut ? "opacity-60" : ""
           } ${item.hoverImage ? "group-hover:opacity-0" : ""}`}
         />
@@ -58,7 +58,7 @@ export function ProductCard({ item }: { item: CardItem }) {
             aria-hidden="true"
             fill
             sizes="(min-width: 1024px) 24vw, 46vw"
-            className="object-contain p-4 pb-6 opacity-0 drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] transition-opacity duration-300 group-hover:opacity-100 motion-reduce:transition-none sm:p-5 sm:pb-7"
+            className="pointer-events-none object-contain p-4 pb-6 opacity-0 drop-shadow-[0_10px_18px_rgba(0,0,0,0.18)] transition-opacity duration-300 group-hover:opacity-100 motion-reduce:transition-none sm:p-5 sm:pb-7"
           />
         )}
 
@@ -78,7 +78,7 @@ export function ProductCard({ item }: { item: CardItem }) {
 
       {/* Inset label — keeps commerce facts legible on any colour field */}
       <div className="relative m-2 mt-0 flex-1 rounded-[1.25rem] bg-luma-white px-4 py-3.5 sm:px-5">
-        <div className="flex items-start justify-between gap-2 sm:gap-3">
+        <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
           <h3 className="min-w-0 font-display text-lg leading-tight text-onyx sm:text-2xl">
             <Link
               href={item.href}

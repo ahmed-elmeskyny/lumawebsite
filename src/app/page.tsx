@@ -3,7 +3,6 @@ import { FeaturedEditions } from "@/components/sections/FeaturedEditions";
 import { StandalonePairs } from "@/components/sections/StandalonePairs";
 import { ExpressionBand } from "@/components/sections/ExpressionBand";
 import { BrandStory } from "@/components/sections/BrandStory";
-import { ReassuranceStrip } from "@/components/sections/ReassuranceStrip";
 import { FaqPreview } from "@/components/sections/FaqPreview";
 
 /**
@@ -24,7 +23,6 @@ export default function HomePage() {
       <StandalonePairs />
       <ExpressionBand />
       <BrandStory />
-      <ReassuranceStrip />
       <FaqPreview />
     </>
   );

@@ -140,11 +140,15 @@ function CartLineItem({
   const product = getProductByHandle(line.handle);
   const image = product?.cardImage ?? product?.image;
   const typeLabel = product?.type === "edition" ? "3-pair edition" : "Single pair";
+  const productHref =
+    product?.type === "edition"
+      ? "/editions/" + line.handle
+      : "/products/" + line.handle;
 
   return (
     <li className="grid grid-cols-[6rem_minmax(0,1fr)] gap-4 py-6 sm:grid-cols-[8rem_minmax(0,1fr)_auto] sm:items-center sm:gap-6">
       <Link
-        href={"/products/" + line.handle}
+        href={productHref}
         className="group relative aspect-[4/5] overflow-hidden rounded-2xl bg-crystal"
         aria-label={"View " + line.name}
       >
@@ -165,7 +169,7 @@ function CartLineItem({
         </p>
         <h2 className="mt-1 font-display text-2xl leading-tight text-onyx">
           <Link
-            href={"/products/" + line.handle}
+            href={productHref}
             className="hover:text-celtic-blue"
           >
             {line.name}

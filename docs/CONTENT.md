@@ -845,41 +845,81 @@ stretch claims.
 
 ## Our Story Page
 
-**Eyebrow**
+The page follows an emotional, chapter-based narrative rather than one long
+brand biography. Approved structure and core copy:
 
-> “The Luma story”
+1. **Manifesto — “Wear who you are.”** Luma is a movement of color,
+   creativity, and self-expression, starting with the part of an outfit closest
+   to the ground.
+2. **Before the color — “The world asked everyone to blend in.”** Luma was
+   full of feeling and imagination but kept it inside in a world of sameness.
+3. **The breakthrough — “Then the color found a way out.”** Every color
+   became a feeling and every pattern became a story. Expression can start from
+   the ground up.
+4. **Who we are — “Your daily canvas.”** Socks can carry a mood, personality,
+   and a unique spark.
+5. **Why / How / What.** Expression belongs to everyone; Luma turns socks into
+   stories; the result is standalone designs and collectible editions with
+   something to say.
+6. **The mascot — “A movement needs a face.”** Luma is playful, curious, and
+   changing: a sidekick who connects every design, edition, inside joke, and
+   future collaboration to one larger world.
+7. **Promise — “Feel good. Stand out. Stay you.”** Designs carry a character,
+   feeling, or story; color turns an everyday detail into a statement; every
+   pair should feel as considered as it looks.
+8. **Origin.** Luma began in Morocco with the idea that everyday fashion can be
+   more expressive, playful, and personal. Keep this as one supporting chapter,
+   not the main positioning.
+9. **Closing — “Your mood. Your style. Your story.”** Link to standalone socks
+   and editions.
 
-**Heading**
+The “Birth of Expression” narrative is approved as brand mythology about the
+mascot, not a literal founder or manufacturing history. Do not add a launch
+date, manufacturing location, “first in Morocco” claim, or a definitive LUMA
+acronym. Candidate acronym ideas remain unresolved until the owner selects one.
 
-> “Wear who you are.”
+## The Luma Journal
 
-**Opening**
+**Journal heading**
 
-> “Most socks are designed to disappear. Luma was created to do the opposite.”
+> “Stories worth wearing.”
 
-**Main story**
+**Introduction**
 
-> “We started Luma in Morocco with a simple belief: something you wear every
-> day can still feel personal. A pair of socks can carry a color, a character,
-> a joke, or a mood—and give an ordinary outfit a detail that feels completely
-> yours.
->
-> Luma brings original sock designs, collectible editions, playful packaging,
-> and a curious mascot into one growing world. Some days call for bold. Some
-> for weird. Some for dreamy. The point is not to choose one identity forever.
-> It is to wear the one that feels right today.”
+> “How socks are made, what materials change, how to choose a pair, what is
+> happening across the sock world—and what Luma is building.”
 
-**Closing**
+The journal is a broader sock publication, not only a Luma news feed. Its
+editorial pillars are:
 
-> “This story starts in Morocco and is made to travel. One pair, one mood, one
-> colorful step at a time.”
+- Sock craft and manufacturing education
+- Materials and construction
+- Practical fit, care, and buying guides
+- Sock style, culture, and design
+- Sourced and dated news from the wider sock world
+- Luma products, editions, characters, and company news
 
-**Signature line**
+The initial journal contains eight evergreen editorial stories:
 
-> “Made with color in Morocco.”
+- How socks are made: from an idea to a finished pair
+- Sock materials explained: what each fibre brings
+- How to choose the right socks for your day
 
-Do not add a fabricated founder story, launch date, manufacturing location,
-mascot origin, or “first in Morocco” claim.
+- Why self-expression starts from the ground up
+- Meet Luma, the sidekick behind the socks
+- Inside Color Your Steps: Luma arrives
+- Inside Healthy Shifts: Luma is on call
+- Choose socks for your mood, not only your outfit
+
+Journal articles do not show fabricated publication dates, named authors,
+medical benefits, customer stories, or Luma-specific material and
+manufacturing claims. General educational articles may explain common sock
+fibres, construction methods, fit, and care when they are clearly framed as
+general industry guidance rather than facts about Luma products. Edition
+stories may explain supplied artwork and approved campaign wordplay. The
+Healthy Shifts article must explicitly preserve its playful, non-medical
+context. Future news articles must be based on verifiable, dated sources and
+must distinguish reporting from Luma commentary.
 
 ## FAQ
 

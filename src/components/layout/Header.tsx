@@ -29,6 +29,7 @@ const NAV_LINKS: readonly NavLink[] = [
     ],
   },
   { href: "/our-story", label: "Our story" },
+  { href: "/blog", label: "Blog" },
   { href: "/size-guide", label: "Size guide" },
   { href: "/faq", label: "FAQ" },
 ] as const;
@@ -50,6 +51,9 @@ export function Header() {
   const { itemCount } = useCart();
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [desktopSubmenuOpen, setDesktopSubmenuOpen] = useState<string | null>(
+    null,
+  );
   const drawerRef = useRef<HTMLDivElement>(null);
   const openButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -99,7 +103,7 @@ export function Header() {
   }, [menuOpen, closeMenu]);
 
   return (
-    <header className="sticky top-0 z-40 border-b-2 border-onyx/10 bg-luma-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b-2 border-onyx/10 bg-luma-white/95">
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-7 lg:px-12">
         <Link
           href="/"
@@ -121,6 +125,7 @@ export function Header() {
             {NAV_LINKS.map((link) => {
               // A section counts as current when you are on it or on any
               // page beneath it, so "Editions" stays lit inside a story.
+              const isExact = pathname === link.href;
               const isCurrent =
                 pathname === link.href ||
                 (link.href !== "/" && pathname.startsWith(`${link.href}/`));
@@ -128,10 +133,28 @@ export function Header() {
                 <li
                   key={link.href}
                   className="group/item relative"
+                  onMouseEnter={() => {
+                    if (link.children) setDesktopSubmenuOpen(link.href);
+                  }}
+                  onMouseLeave={() => {
+                    if (link.children) setDesktopSubmenuOpen(null);
+                  }}
+                  onFocusCapture={() => {
+                    if (link.children) setDesktopSubmenuOpen(link.href);
+                  }}
+                  onBlurCapture={(event) => {
+                    if (
+                      link.children &&
+                      !event.currentTarget.contains(event.relatedTarget)
+                    ) {
+                      setDesktopSubmenuOpen(null);
+                    }
+                  }}
                 >
                   <Link
                     href={link.href}
-                    aria-current={isCurrent ? "page" : undefined}
+                    onClick={() => setDesktopSubmenuOpen(null)}
+                    aria-current={isExact ? "page" : undefined}
                     className="group relative inline-flex items-center rounded-full px-4 py-2"
                   >
                     <span
@@ -158,7 +181,13 @@ export function Header() {
                       stop focus ever entering and mean `focus-within`
                       could never fire for keyboard users. */}
                   {link.children && (
-                    <div className="pointer-events-none absolute left-0 top-full z-50 w-56 pt-2 opacity-0 transition-opacity duration-150 group-hover/item:pointer-events-auto group-hover/item:opacity-100 group-focus-within/item:pointer-events-auto group-focus-within/item:opacity-100 motion-reduce:transition-none">
+                    <div
+                      className={`absolute left-0 top-full z-50 w-56 pt-2 transition-opacity duration-150 motion-reduce:transition-none ${
+                        desktopSubmenuOpen === link.href
+                          ? "pointer-events-auto opacity-100"
+                          : "pointer-events-none opacity-0"
+                      }`}
+                    >
                       <ul className="overflow-hidden rounded-2xl border border-onyx/10 bg-luma-white p-2 shadow-[0_12px_32px_rgba(0,0,0,0.16)]">
                         {link.children.map((child) => {
                           const childCurrent = pathname === child.href;
@@ -166,6 +195,7 @@ export function Header() {
                             <li key={child.href}>
                               <Link
                                 href={child.href}
+                                onClick={() => setDesktopSubmenuOpen(null)}
                                 aria-current={
                                   childCurrent ? "page" : undefined
                                 }
@@ -236,7 +266,7 @@ export function Header() {
         <div className="fixed inset-0 z-50 md:hidden">
           <button
             type="button"
-            aria-hidden="true"
+            aria-label="Close menu"
             tabIndex={-1}
             onClick={closeMenu}
             className="absolute inset-0 h-full w-full bg-onyx/40"
@@ -247,7 +277,7 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label="Menu"
-            className="absolute inset-y-0 right-0 flex w-full max-w-xs flex-col bg-luma-white shadow-xl"
+            className="absolute inset-y-0 right-0 flex max-h-dvh w-full max-w-xs flex-col overflow-y-auto overscroll-contain bg-luma-white shadow-xl"
           >
             <div className="flex h-16 items-center justify-between px-4">
               <Image

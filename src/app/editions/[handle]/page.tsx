@@ -5,7 +5,10 @@ import { notFound } from "next/navigation";
 import { editionStories, getEditionStory } from "@/data/editionStories";
 import { getProductByHandle } from "@/lib/catalogue";
 import { formatMad } from "@/lib/money";
+import { ProductGallery } from "@/components/product/ProductGallery";
 import { PurchasePanel } from "@/components/product/PurchasePanel";
+import { EditionJourney } from "@/components/edition/EditionJourney";
+import { TemporaryAmbulance } from "@/components/edition/TemporaryAmbulance";
 import { Reveal } from "@/components/ui/Reveal";
 import { GhostType } from "@/components/ui/GhostType";
 import { Disclosure } from "@/components/ui/Disclosure";
@@ -51,6 +54,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
 
   const heroText = story.heroDark ? "text-luma-white" : "text-onyx";
   const heroBody = story.heroDark ? "text-luma-white/90" : "text-onyx/80";
+  const isHealthyShifts = story.handle === "healthy-shifts";
 
   return (
     <article>
@@ -67,7 +71,7 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
           {story.ghostWord}
         </GhostType>
 
-        <div className="relative mx-auto grid max-w-[1440px] items-center gap-8 px-4 py-14 sm:px-7 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:gap-12 lg:px-12 lg:py-20">
+        <div className="relative mx-auto grid min-h-[78svh] max-w-[1440px] items-center gap-8 px-4 py-14 sm:px-7 lg:grid-cols-[minmax(0,43fr)_minmax(0,57fr)] lg:gap-12 lg:px-12 lg:py-20">
           <div className="max-w-xl">
             <p
               className={`text-sm font-bold uppercase tracking-[0.16em] ${
@@ -105,10 +109,14 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
             </p>
           </div>
 
-          <div className="relative">
+          <div className="relative min-h-[420px] sm:min-h-[560px]">
             <div
               aria-hidden="true"
-              className="absolute left-1/2 top-1/2 aspect-square w-4/5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-luma-white/15"
+              className="absolute left-1/2 top-1/2 aspect-square w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-[42%_58%_48%_52%/55%_44%_56%_45%] bg-luma-white/15"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-x-[4%] bottom-[9%] h-[22%] rounded-[50%] bg-onyx/15 blur-xl"
             />
             <Image
               src={story.heroImage.src}
@@ -117,85 +125,26 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
               height={story.heroImage.height}
               priority
               sizes="(min-width: 1024px) 52vw, 92vw"
-              className="relative h-auto w-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+              className="absolute inset-0 z-10 h-full w-full scale-110 object-contain drop-shadow-[0_24px_46px_rgba(0,0,0,0.3)]"
             />
+            {isHealthyShifts ? (
+              <div className="absolute bottom-[5%] right-[2%] z-20 w-32 -rotate-3 rounded-2xl bg-cyber-yellow p-3 shadow-xl sm:w-44">
+                <TemporaryAmbulance />
+              </div>
+            ) : (
+              <Image
+                src="/assets/mascot/luma-wave-blue.svg"
+                alt=""
+                width={180}
+                height={180}
+                className="absolute bottom-[2%] right-[2%] z-20 h-auto w-24 rotate-6 drop-shadow-[0_12px_18px_rgba(0,0,0,0.2)] sm:w-36"
+              />
+            )}
           </div>
         </div>
       </section>
 
-      {/* Chapter intro */}
-      <section className="bg-luma-white">
-        <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-[clamp(2rem,6vw,3.25rem)] leading-[0.98] tracking-tight text-onyx">
-              {story.chapterHeading}
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-onyx/80">
-              {story.chapterBody}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Story beats */}
-      {story.beats.map((beat, index) => {
-        const flip = index % 2 === 1;
-        return (
-          <section
-            key={beat.design}
-            aria-labelledby={`beat-${index}`}
-            className={`${beat.field} relative overflow-hidden`}
-          >
-            <div className="mx-auto grid max-w-[1440px] items-center gap-8 px-4 py-14 sm:px-7 lg:grid-cols-2 lg:gap-14 lg:px-12 lg:py-20">
-              <Reveal className={flip ? "lg:order-2" : ""}>
-                <div className="relative mx-auto max-w-md">
-                  <div
-                    aria-hidden="true"
-                    className="absolute left-1/2 top-1/2 aspect-square w-[85%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-luma-white/30"
-                  />
-                  <Image
-                    src={beat.image.src}
-                    alt={beat.image.alt}
-                    width={beat.image.width}
-                    height={beat.image.height}
-                    sizes="(min-width: 1024px) 42vw, 80vw"
-                    className="relative mx-auto h-auto w-[72%] object-contain drop-shadow-[0_14px_26px_rgba(0,0,0,0.22)]"
-                  />
-                </div>
-              </Reveal>
-
-              <Reveal delayMs={120} className={flip ? "lg:order-1" : ""}>
-                <p className="font-display text-5xl leading-none text-onyx/25">
-                  {`0${index + 1}`}
-                </p>
-                <p className="mt-3 text-sm font-bold uppercase tracking-[0.16em] text-onyx/70">
-                  {beat.title}
-                </p>
-                <h2
-                  id={`beat-${index}`}
-                  className="mt-2 font-display text-[clamp(2.25rem,7vw,3.5rem)] leading-[0.95] tracking-tight text-onyx"
-                >
-                  {beat.design}
-                </h2>
-                <p className="mt-4 max-w-prose text-lg leading-relaxed text-onyx/85">
-                  {beat.body}
-                </p>
-
-                <div className="mt-7 max-w-xs overflow-hidden rounded-2xl">
-                  <Image
-                    src={beat.wornImage.src}
-                    alt={beat.wornImage.alt}
-                    width={beat.wornImage.width}
-                    height={beat.wornImage.height}
-                    sizes="(min-width: 1024px) 20vw, 60vw"
-                    className="h-auto w-full object-cover"
-                  />
-                </div>
-              </Reveal>
-            </div>
-          </section>
-        );
-      })}
+      <EditionJourney story={story} />
 
       {/* Order */}
       <section id="order" className="scroll-mt-20 bg-eggshell">
@@ -212,20 +161,10 @@ export default async function EditionStoryPage({ params }: EditionPageProps) {
           </Reveal>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-14">
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="absolute left-1/2 top-1/2 aspect-square w-4/5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyber-yellow/60"
-              />
-              <Image
-                src={product.image.src}
-                alt={product.image.alt}
-                width={product.image.width}
-                height={product.image.height}
-                sizes="(min-width: 1024px) 46vw, 92vw"
-                className="relative h-auto w-full object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.22)]"
-              />
-            </div>
+            <ProductGallery
+              images={product.gallery}
+              field={story.heroField}
+            />
 
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.14em] text-onyx/60">

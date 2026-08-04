@@ -40,6 +40,7 @@ const LINK_GROUPS = [
     heading: "Company",
     links: [
       { href: "/our-story", label: "Our story" },
+      { href: "/blog", label: "The Luma Journal" },
       { href: "/privacy", label: "Privacy policy" },
       { href: "/terms", label: "Terms of service" },
     ],

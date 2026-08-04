@@ -58,7 +58,7 @@ data. Checkout remains Shopify-hosted and uses cash on delivery at launch.
 | Edition configuration | Fixed contents; no build-your-own box |
 | Edition sizing | One selected size for all three pairs |
 
-The launch catalogue contains six sellable Shopify products:
+The current launch catalogue contains ten sellable Shopify products:
 
 - Color Your Steps — fixed three-pair edition
 - Healthy Shifts — fixed three-pair edition
@@ -66,9 +66,13 @@ The launch catalogue contains six sellable Shopify products:
 - Daydream — standalone pair
 - Shroom Pop — standalone pair
 - Vibe Attack — standalone pair
+- Kickflip Luma — standalone pair and Color Your Steps component
+- Luma Doodle — standalone pair and Color Your Steps component
+- Plus Pulse — standalone pair and Healthy Shifts component
+- Vital Signs — standalone pair and Healthy Shifts component
 
-The six designs inside the two editions are not standalone Shopify products at
-launch.
+Watch Your Step and Luma Med Team remain edition-exclusive. The other four
+edition designs are also sold as standalone pairs.
 
 ## Business Goals
 
@@ -196,11 +200,13 @@ The detailed review and allowed adaptations will be documented separately in
 | Route | Purpose | Launch status |
 | --- | --- | --- |
 | `/` | Introduce Luma, feature editions and products, explain the offer, and lead into shopping | Required |
-| `/shop` | Show all six sellable products with clear product-type grouping | Required |
-| `/collections/editions` | Show the two fixed three-pair editions | Required |
-| `/collections/standalone-socks` | Show the four standalone pairs | Required |
-| `/products/[handle]` | Present one live Shopify product and its purchase controls | Required |
+| `/socks` | Show the eight standalone pairs | Required |
+| `/editions` | Show the two fixed three-pair editions | Required |
+| `/editions/[handle]` | Present an edition story, full product gallery, and purchase controls | Required |
+| `/products/[handle]` | Present one standalone sock and its purchase controls | Required |
 | `/our-story` | Explain the approved Luma brand story and mascot-led world | Required |
+| `/blog` | Present the Luma Journal and its editorial story index | Required |
+| `/blog/[slug]` | Present one long-form Luma Journal article | Required |
 | `/size-guide` | Explain EU 36–40, EU 41–46, and edition sizing | Required |
 | `/faq` | Answer only approved launch questions | Required |
 | `/search` | Search live sellable products when a real search control is present | Conditional |
@@ -335,7 +341,7 @@ privacy link, success state, and failure state are implemented and approved.
 
 The main shop must:
 
-- Show all six sellable Shopify products.
+- Show all ten sellable Shopify products.
 - Make editions and standalone pairs visually distinguishable.
 - Use live Shopify title, price, availability, handle, and imagery.
 - Allow collection grouping without duplicating products.
@@ -543,7 +549,7 @@ Exact measurable thresholds and the final QA matrix belong in
 - Do not invent ratings, review counts, shipping promises, or organization
   details in structured data.
 
-Search is optional at launch because the catalogue contains only six sellable
+Search is optional at launch because the catalogue contains only ten sellable
 products. If implemented, it must search real product data and provide the
 approved empty and error states.
 
@@ -626,7 +632,7 @@ The website is ready to launch only when:
 
 - It looks and feels recognizably Luma rather than like a generic template or an
   Aardvark copy.
-- All six sellable products and their relationships are accurate.
+- All ten sellable products and their relationships are accurate.
 - Edition contents, sizes, prices, packaging, and COD messaging are clear.
 - Live Shopify data drives products, availability, cart, and checkout.
 - A visitor can complete the critical mobile journey from product discovery to

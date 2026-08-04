@@ -93,6 +93,30 @@ export function Hero() {
             unoptimized
             className="absolute -top-1 right-2 z-30 h-12 w-auto -rotate-12 sm:h-16"
           />
+          <Image
+            src="/assets/brand/Luma Socks - Stickers  (28).svg"
+            alt=""
+            width={70}
+            height={70}
+            unoptimized
+            className="absolute left-0 top-[5%] z-30 h-9 w-auto -rotate-6 drop-shadow-[0_8px_12px_rgba(0,0,0,0.18)] sm:h-13"
+          />
+          <Image
+            src="/assets/brand/Luma Socks - Stickers  (32).svg"
+            alt=""
+            width={70}
+            height={70}
+            unoptimized
+            className="absolute -left-1 bottom-[4%] z-30 h-10 w-auto -rotate-12 drop-shadow-[0_8px_12px_rgba(0,0,0,0.18)] sm:h-15"
+          />
+          <Image
+            src="/assets/brand/Luma Socks - Stickers  (18).svg"
+            alt=""
+            width={70}
+            height={70}
+            unoptimized
+            className="absolute -bottom-1 right-[3%] z-30 h-10 w-auto rotate-12 drop-shadow-[0_8px_12px_rgba(0,0,0,0.18)] sm:h-15"
+          />
         </div>
       </div>
     </section>
