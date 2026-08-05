@@ -27,6 +27,17 @@ export interface StoryBeat {
 
 export interface EditionStory {
   handle: string;
+  /**
+   * Position in the ongoing edition series. Rendered as "Edition 01",
+   * "Edition 02" — the numbering is what tells a first-time visitor these
+   * are a growing collection rather than two unrelated products.
+   */
+  seriesNumber: number;
+  /**
+   * The single idea the edition is built around, in a few words. Shown
+   * next to the box so the theme is readable before anyone opens a story.
+   */
+  theme: string;
   /** Small label above the hero heading */
   eyebrow: string;
   heroHeading: string;
@@ -62,6 +73,8 @@ const worn = (slug: string, alt: string): ProductImage => ({
 export const editionStories: readonly EditionStory[] = [
   {
     handle: "color-your-steps",
+    seriesNumber: 1,
+    theme: "Art, color and movement",
     eyebrow: "Edition 01 · The first one",
     heroHeading: "Luma was here.",
     heroBody:
@@ -110,6 +123,8 @@ export const editionStories: readonly EditionStory[] = [
   },
   {
     handle: "healthy-shifts",
+    seriesNumber: 2,
+    theme: "Long shifts and the people who work them",
     eyebrow: "Edition 02 · Doctor's orders",
     heroHeading: "Luma takes a shift.",
     heroBody:
@@ -160,4 +175,22 @@ export const editionStories: readonly EditionStory[] = [
 
 export function getEditionStory(handle: string): EditionStory | undefined {
   return editionStories.find((story) => story.handle === handle);
+}
+
+/** "Edition 01" — zero-padded so the series reads as a numbered set. */
+export function editionLabel(seriesNumber: number): string {
+  return `Edition ${String(seriesNumber).padStart(2, "0")}`;
+}
+
+/**
+ * The number the next edition will carry. Derived, so the "in the works"
+ * tile advances on its own when a third edition is added.
+ */
+export function nextEditionNumber(): number {
+  return (
+    editionStories.reduce(
+      (highest, story) => Math.max(highest, story.seriesNumber),
+      0,
+    ) + 1
+  );
 }

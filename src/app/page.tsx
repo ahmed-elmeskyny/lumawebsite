@@ -8,19 +8,23 @@ import { FaqPreview } from "@/components/sections/FaqPreview";
 /**
  * Product-led homepage.
  *
- * Hierarchy: products first, then category and price, then the shopping
- * action, then brand personality, then operational information.
+ * Order matters here. Single pairs come first because they need no
+ * explanation — a sock at 80 MAD is instantly understood, and it lets a
+ * new visitor grasp what Luma sells within one scroll.
  *
- * Intentionally absent: the customer-content invitation (Instagram URL
- * unverified) and a newsletter block (no provider, consent copy, or
- * privacy link yet).
+ * Editions follow, because "edition" is a concept that has to be taught
+ * before it can be sold. Leading with the boxes (the previous order) meant
+ * the first thing a visitor saw was packaging, with no way to tell what
+ * was inside or why it cost three times a single pair. Placing the series
+ * after the grid means the reader already knows the designs by the time
+ * they are offered three of them in a box.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <FeaturedEditions />
       <StandalonePairs />
+      <FeaturedEditions />
       <ExpressionBand />
       <BrandStory />
       <FaqPreview />

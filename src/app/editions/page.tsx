@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getFeaturedEditions } from "@/lib/catalogue";
-import { getEditionStory } from "@/data/editionStories";
+import {
+  editionLabel,
+  getEditionStory,
+  nextEditionNumber,
+} from "@/data/editionStories";
 import { formatMad } from "@/lib/money";
 import { GhostType } from "@/components/ui/GhostType";
 import { Reveal } from "@/components/ui/Reveal";
@@ -25,14 +29,15 @@ export default function EditionsPage() {
         </GhostType>
         <div className="on-dark relative mx-auto max-w-[1440px] px-4 py-14 sm:px-7 lg:px-12 lg:py-20">
           <p className="subtitle text-sm uppercase tracking-[0.16em] text-cyber-yellow">
-            The box collection
+            The edition series
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.75rem,9vw,5rem)] leading-[0.92] tracking-tight text-luma-white">
             Every edition is a story in three pairs.
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-luma-white/85">
-            A fixed set of three designs, one rigid magnetic box, and one size
-            across all three pairs. Open one and follow the whole thing.
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-luma-white/90">
+            An edition is three Luma designs built around one theme, boxed
+            together: a fixed set, one rigid magnetic box, and one size across
+            all three pairs. Each is numbered, and the series keeps growing.
           </p>
         </div>
       </section>
@@ -94,8 +99,18 @@ export default function EditionsPage() {
                       {story?.heroBody ?? edition.shortDescription}
                     </p>
 
+                    {story && (
+                      <p
+                        className={`subtitle mt-5 text-xs uppercase tracking-[0.14em] ${
+                          story.heroDark ? "text-cyber-yellow" : "text-celtic-blue"
+                        }`}
+                      >
+                        Theme · {story.theme}
+                      </p>
+                    )}
+
                     {edition.contents && (
-                      <ul className="mt-5 flex flex-wrap gap-2">
+                      <ul className="mt-4 flex flex-wrap gap-2">
                         {edition.contents.map((component) => (
                           <li
                             key={component.name}
@@ -128,6 +143,33 @@ export default function EditionsPage() {
               </Reveal>
             );
           })}
+
+          {/* Closes the list with the series itself, so the page reads as an
+              ongoing collection rather than a catalogue of two. No date,
+              theme, or collaborator is named — none are confirmed. */}
+          <Reveal>
+            <article className="flex flex-col items-center rounded-[2.5rem] border-2 border-dashed border-onyx/25 p-10 text-center sm:p-14">
+              <Image
+                src="/assets/mascot/luma-peace-red.svg"
+                alt=""
+                width={140}
+                height={165}
+                unoptimized
+                className="h-24 w-auto"
+              />
+              <p className="subtitle mt-6 text-sm uppercase tracking-[0.16em] text-celtic-blue">
+                {editionLabel(nextEditionNumber())}
+              </p>
+              <h2 className="mt-3 font-display text-[clamp(2rem,5vw,3rem)] leading-[0.95] tracking-tight text-onyx">
+                The next one is in the works.
+              </h2>
+              <p className="mt-4 max-w-md text-lg leading-relaxed text-onyx/80">
+                New themes and collaborations join the series as they land.
+                Sign up at the bottom of any page and you will hear about the
+                next box first.
+              </p>
+            </article>
+          </Reveal>
         </div>
       </div>
     </div>
